@@ -40,7 +40,8 @@ const COPERNICUS_CONFIG = {
 // 4. CAPAS BASE
 const TILE_LAYERS = {
   dark: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-  googleTerrain: 'https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}'
+  googleTerrain: 'https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',
+  googleSatellite: 'https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}' // Google Satellite
 };
 
 // Variables globales del mapa
@@ -66,10 +67,10 @@ function initHeroMap() {
     attributionControl: false
   });
 
-  // Agregar capa base inicial (Mapa Oscuro)
-  activeTileLayer = L.tileLayer(TILE_LAYERS.googleTerrain, {
+  // Agregar capa base inicial (Google Satellite)
+  activeTileLayer = L.tileLayer(TILE_LAYERS.googleSatellite, {
     maxZoom: MAP_CONFIG.maxZoom,
-    subdomains: 'abcd'
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
   }).addTo(mapInstance);
 
   // Cargar capas WMS de la Municipalidad de Salta y Geometrías de Cuencas/Escuelas
