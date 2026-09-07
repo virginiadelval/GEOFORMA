@@ -67,7 +67,7 @@ function initHeroMap() {
   });
 
   // Agregar capa base inicial (Mapa Oscuro)
-  activeTileLayer = L.tileLayer(TILE_LAYERS.dark, {
+  activeTileLayer = L.tileLayer(TILE_LAYERS.googleTerrain, {
     maxZoom: MAP_CONFIG.maxZoom,
     subdomains: 'abcd'
   }).addTo(mapInstance);
@@ -116,7 +116,7 @@ function loadSaltaGeoServerServices() {
     console.log("GeoServer WMS Escuelas fallback local activo.");
   }
 
-  // 3. Polígono Vectorial de la Cuenca del Río Arenales / Arias (Salta)
+  // 3. Polígono Vectorial  (Salta)
   cuencaPolygon = L.polygon([
     [-24.7750, -65.4250],
     [-24.7700, -65.4050],
