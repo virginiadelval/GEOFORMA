@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GEO|FORMA — Formación Profesional en Tecnologías Geoespaciales & SIG</title>
-  <meta name="description" content="Programas de capacitación especializada en QGIS, Cloud GIS, Google Earth Engine, Web Mapping y GIS + IA para profesionales con Virginia del Val.">
+  <meta name="description"
+    content="Programas de capacitación especializada en QGIS, Cloud GIS, Google Earth Engine, Web Mapping y GIS + IA para profesionales con Virginia del Val.">
 
   <!-- Fonts: Inter & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -55,8 +59,10 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Leaflet CSS & JS for Hero Interactive Visor -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <!-- MÓDULO INDEPENDIENTE DEL MAPA (js/map.js) -->
   <script src="js/map.js" defer></script>
@@ -66,12 +72,15 @@
       background: #0B0F17 !important;
       font-family: 'Inter', sans-serif;
     }
+
     .custom-scrollbar::-webkit-scrollbar {
       width: 6px;
     }
+
     .custom-scrollbar::-webkit-scrollbar-track {
       background: #F1F5F9;
     }
+
     .custom-scrollbar::-webkit-scrollbar-thumb {
       background: #CBD5E1;
       border-radius: 3px;
@@ -86,61 +95,85 @@
   <div class="fixed inset-0 bg-grid-fine pointer-events-none z-0"></div>
 
   <!-- BARRA DE ANUNCIO SUPERIOR -->
-  <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 text-center border-b border-slate-800 font-medium relative z-50 flex items-center justify-center gap-2">
+  <div
+    class="bg-slate-900 text-slate-300 text-xs py-2 px-4 text-center border-b border-slate-800 font-medium relative z-50 flex items-center justify-center gap-2">
     <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
     <span><strong>Próxima Cohorte 2026-II:</strong> Inscripciones abiertas con becas parciales corporativas.</span>
-    <a href="#inversion" class="text-terracotta hover:underline ml-2 font-semibold hidden sm:inline">Ver Opciones de Pago &rarr;</a>
+    <a href="#inversion" class="text-terracotta hover:underline ml-2 font-semibold hidden sm:inline">Ver Opciones de
+      Pago &rarr;</a>
   </div>
 
   <!-- HEADER / NAVEGACIÓN -->
-  <header class="sticky top-0 z-40 bg-pearl/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
+  <header
+    class="sticky top-0 z-40 bg-pearl/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between relative">
-      
+
       <!-- LOGO (IZQUIERDA) -->
       <a href="#" class="flex items-center gap-3 group shrink-0">
-        <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white border border-slate-700 shadow-sm group-hover:border-terracotta transition-colors">
+        <div
+          class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white border border-slate-700 shadow-sm group-hover:border-terracotta transition-colors">
           <i data-lucide="layers" class="w-5 h-5 text-terracotta"></i>
         </div>
         <div class="flex flex-col">
-          <span class="font-display font-bold text-xl tracking-tight text-slate-900 group-hover:text-slate-800 transition-colors">
+          <span
+            class="font-display font-bold text-xl tracking-tight text-slate-900 group-hover:text-slate-800 transition-colors">
             GEO<span class="text-terracotta font-normal">|</span>FORMA
           </span>
-          <span class="text-[10px] tracking-widest uppercase font-semibold text-slate-600">GeoSpatial Academy</span>
+          <span class="text-[10px] tracking-widest uppercase font-semibold text-slate-600">Centro de Capacitación
+            Geoespacial</span>
         </div>
       </a>
 
       <!-- MENÚ DESKTOP (CENTRADO GEOMÉTRICAMENTE) -->
-      <nav class="hidden md:flex items-center gap-10 text-sm font-semibold text-slate-600 absolute left-1/2 -translate-x-1/2">
-        <a href="#cursos" class="hover:text-slate-900 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta">Cursos</a>
-        <a href="#metodologia" class="hover:text-slate-900 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta">Metodología</a>
-        <a href="#inversion" class="hover:text-slate-900 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta">Inversión</a>
+      <nav
+        class="hidden md:flex items-center gap-10 text-sm font-semibold text-slate-600 absolute left-1/2 -translate-x-1/2">
+        <a href="#cursos"
+          class="hover:text-slate-900 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta">Cursos</a>
+        <a href="#metodologia"
+          class="hover:text-slate-900 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta">Metodología</a>
+
+        <a href="#inversion"
+          class="hover:text-slate-900 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta">Inversión</a>
+        <a href="#empresas"
+          class="hover:text-slate-900 transition-colors py-1 border-b-2 border-transparent hover:border-terracotta text-terracotta">Empresas</a>
       </nav>
 
       <!-- BOTÓN CTA HEADER (DERECHA) -->
       <div class="hidden sm:flex items-center gap-4 shrink-0">
-        <button onclick="openAdvisoryModal()" class="text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors px-3 py-2">
+        <button onclick="openAdvisoryModal()"
+          class="text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors px-3 py-2">
           Contacto
         </button>
-        <a href="#inversion" class="text-sm font-semibold text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 px-4 py-2.5 rounded-lg shadow-sm transition-all duration-200 flex items-center gap-2">
+        <a href="#inversion"
+          class="text-sm font-semibold text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 px-4 py-2.5 rounded-lg shadow-sm transition-all duration-200 flex items-center gap-2">
           <span>Ver Catálogo</span>
           <i data-lucide="arrow-right" class="w-4 h-4 text-slate-500"></i>
         </a>
       </div>
 
       <!-- BOTÓN MENÚ MÓVIL -->
-      <button id="mobile-menu-btn" class="md:hidden text-slate-700 p-2 rounded-md hover:bg-slate-200/60 focus:outline-none">
+      <button id="mobile-menu-btn"
+        class="md:hidden text-slate-700 p-2 rounded-md hover:bg-slate-200/60 focus:outline-none">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
 
     <!-- MENÚ DESPLEGABLE MÓVIL -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 text-center">
+    <div id="mobile-menu"
+      class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 text-center">
       <a href="#cursos" class="block text-slate-700 font-medium py-2 hover:text-terracotta">Cursos</a>
       <a href="#metodologia" class="block text-slate-700 font-medium py-2 hover:text-terracotta">Metodología</a>
+     
       <a href="#inversion" class="block text-slate-700 font-medium py-2 hover:text-terracotta">Inversión</a>
+      <a href="#empresas" class="block text-terracotta font-semibold py-2 hover:text-terracotta-hover">Empresas
+        (In-Company)</a>
       <div class="pt-2 flex flex-col gap-2">
-        <a href="#cursos" class="text-center w-full bg-terracotta text-white font-medium py-2.5 rounded-lg shadow-sm">Explorar Cursos</a>
-        <button onclick="openAdvisoryModal()" class="text-center w-full border border-slate-300 text-slate-700 font-medium py-2.5 rounded-lg">Agendar Asesoría</button>
+        <a href="#cursos"
+          class="text-center w-full bg-terracotta text-white font-medium py-2.5 rounded-lg shadow-sm">Explorar
+          Cursos</a>
+        <button onclick="openAdvisoryModal()"
+          class="text-center w-full border border-slate-300 text-slate-700 font-medium py-2.5 rounded-lg">Agendar
+          Asesoría</button>
       </div>
     </div>
   </header>
@@ -149,13 +182,50 @@
 
     <!-- HERO SECTION -->
     <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
+      <!-- CAPA DECORATIVA: CURVAS DE NIVEL TOPOGRÁFICAS SVG (opacidad ~3.5%) -->
+      <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"
+          preserveAspectRatio="xMidYMid slice">
+          <!-- Curvas de nivel concéntricas estilo cartográfico -->
+          <g fill="none" stroke="#334155" stroke-width="1" opacity="0.035">
+            <ellipse cx="900" cy="300" rx="80" ry="50" />
+            <ellipse cx="900" cy="300" rx="140" ry="90" />
+            <ellipse cx="900" cy="300" rx="200" ry="135" />
+            <ellipse cx="900" cy="300" rx="270" ry="185" />
+            <ellipse cx="900" cy="300" rx="350" ry="240" />
+            <ellipse cx="900" cy="300" rx="440" ry="300" />
+          </g>
+          <g fill="none" stroke="#334155" stroke-width="0.8" opacity="0.025">
+            <ellipse cx="200" cy="450" rx="70" ry="45" />
+            <ellipse cx="200" cy="450" rx="130" ry="85" />
+            <ellipse cx="200" cy="450" rx="200" ry="130" />
+            <ellipse cx="200" cy="450" rx="280" ry="185" />
+          </g>
+          <g fill="none" stroke="#C2410C" stroke-width="0.6" opacity="0.02">
+            <ellipse cx="600" cy="100" rx="60" ry="35" />
+            <ellipse cx="600" cy="100" rx="110" ry="70" />
+            <ellipse cx="600" cy="100" rx="170" ry="110" />
+          </g>
+          <!-- Grilla de coordenadas sutil -->
+          <g stroke="#334155" stroke-width="0.5" opacity="0.018">
+            <line x1="0" y1="150" x2="1200" y2="150" />
+            <line x1="0" y1="300" x2="1200" y2="300" />
+            <line x1="0" y1="450" x2="1200" y2="450" />
+            <line x1="300" y1="0" x2="300" y2="600" />
+            <line x1="600" y1="0" x2="600" y2="600" />
+            <line x1="900" y1="0" x2="900" y2="600" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center justify-center">
-          
+
           <!-- COLUMNA IZQUIERDA: TEXTO Y CTAS -->
           <div class="lg:col-span-7 space-y-6">
-            
+
             <div class="inline-flex items-center gap-2 bg-slate-200/70 border border-slate-300 px-3 py-1.5 rounded-md">
               <i data-lucide="compass" class="w-4 h-4 text-terracotta"></i>
               <span class="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-slate-700">
@@ -163,26 +233,31 @@
               </span>
             </div>
 
-            <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
+            <h1
+              class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
               Domina el Territorio a través del Análisis de Datos</span>, la Nube y la Inteligencia Artificial.
             </h1>
 
             <p class="text-lg text-slate-600 leading-relaxed font-normal max-w-2xl">
-              Programas de capacitación especializada diseñados para profesionales que buscan liderar la transformación digital del sector ambiental, minero, urbano e industrial.
+              Programas de capacitación especializada diseñados para profesionales que buscan liderar la transformación
+              digital del sector ambiental, minero, urbano e industrial.
             </p>
 
             <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <a href="#cursos" class="inline-flex items-center justify-center gap-3 bg-terracotta hover:bg-terracotta-hover text-white font-semibold px-7 py-3.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 text-base group">
+              <a href="#cursos"
+                class="inline-flex items-center justify-center gap-3 bg-terracotta hover:bg-terracotta-hover text-white font-semibold px-7 py-3.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 text-base group">
                 <span>Explorar Cursos</span>
                 <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
               </a>
-              <button onclick="openAdvisoryModal()" class="inline-flex items-center justify-center gap-2 border border-slate-700 text-slate-800 hover:text-slate-900 bg-white hover:bg-slate-100 font-semibold px-6 py-3.5 rounded-lg shadow-sm transition-all duration-200 text-base">
+              <button onclick="openAdvisoryModal()"
+                class="inline-flex items-center justify-center gap-2 border border-slate-700 text-slate-800 hover:text-slate-900 bg-white hover:bg-slate-100 font-semibold px-6 py-3.5 rounded-lg shadow-sm transition-all duration-200 text-base">
                 <i data-lucide="calendar" class="w-4 h-4 text-slate-600"></i>
                 <span>Agendar Asesoría</span>
               </button>
             </div>
 
-            <div class="pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-4 text-xs font-medium text-slate-600 text-center sm:text-left">
+            <div
+              class="pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-4 text-xs font-medium text-slate-600 text-center sm:text-left">
               <div class="flex items-center justify-center sm:justify-start gap-2">
                 <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
                 <span>Certificación Oficial</span>
@@ -201,17 +276,19 @@
 
           <!-- COLUMNA DERECHA: VISOR MAPA HERO INTERACTIVO -->
           <div class="lg:col-span-5 w-full flex justify-center">
-            <div class="relative rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden group w-full max-w-lg lg:max-w-none">
-              
+            <div
+              class="relative rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden group w-full max-w-lg lg:max-w-none">
+
               <div class="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
                 <div class="flex items-center gap-2">
                   <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
                   <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
                   <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-                  <span class="ml-2 text-xs font-mono text-slate-400 font-medium">geo_viewer_v4.2.spatial</span>
+                  <span class="ml-2 text-xs font-mono text-slate-400 font-medium">Visor WEB v4.2.0</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <span class="inline-flex items-center gap-1 bg-emerald-950/80 text-emerald-400 text-[10px] font-mono px-2 py-0.5 rounded border border-emerald-800">
+                  <span
+                    class="inline-flex items-center gap-1 bg-emerald-950/80 text-emerald-400 text-[10px] font-mono px-2 py-0.5 rounded border border-emerald-800">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> LIVE STREAM
                   </span>
                 </div>
@@ -219,17 +296,21 @@
 
               <div id="hero-map" class="h-80 sm:h-96 w-full z-10"></div>
 
-              <div class="absolute top-16 right-4 z-20 bg-slate-900/90 backdrop-blur-md border border-slate-700/80 rounded-lg p-2 text-xs shadow-lg space-y-1">
+              <div
+                class="absolute top-16 right-4 z-20 bg-slate-900/90 backdrop-blur-md border border-slate-700/80 rounded-lg p-2 text-xs shadow-lg space-y-1">
                 <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 py-1">Capas Activas</div>
-                <button onclick="changeMapLayer('sat')" id="btn-layer-sat" class="layer-btn w-full text-left px-2.5 py-1.5 rounded flex items-center gap-2 transition-colors text-white bg-terracotta">
+                <button onclick="changeMapLayer('sat')" id="btn-layer-sat"
+                  class="layer-btn w-full text-left px-2.5 py-1.5 rounded flex items-center gap-2 transition-colors text-white bg-terracotta">
                   <i data-lucide="globe" class="w-3.5 h-3.5"></i>
                   <span>Satélite RGB (Sentinel-2)</span>
                 </button>
-                <button onclick="changeMapLayer('topo')" id="btn-layer-topo" class="layer-btn w-full text-left px-2.5 py-1.5 rounded flex items-center gap-2 transition-colors text-slate-300 hover:bg-slate-800">
+                <button onclick="changeMapLayer('topo')" id="btn-layer-topo"
+                  class="layer-btn w-full text-left px-2.5 py-1.5 rounded flex items-center gap-2 transition-colors text-slate-300 hover:bg-slate-800">
                   <i data-lucide="map" class="w-3.5 h-3.5"></i>
                   <span>Google Topográfico</span>
                 </button>
-                <button onclick="changeMapLayer('ndvi')" id="btn-layer-ndvi" class="layer-btn w-full text-left px-2.5 py-1.5 rounded flex items-center gap-2 transition-colors text-slate-300 hover:bg-slate-800">
+                <button onclick="changeMapLayer('ndvi')" id="btn-layer-ndvi"
+                  class="layer-btn w-full text-left px-2.5 py-1.5 rounded flex items-center gap-2 transition-colors text-slate-300 hover:bg-slate-800">
                   <i data-lucide="activity" class="w-3.5 h-3.5"></i>
                   <span>Índice NDVI (Vegetación)</span>
                 </button>
@@ -237,7 +318,8 @@
 
               <div class="absolute bottom-4 left-4 right-4 z-20 grid grid-cols-2 gap-2 pointer-events-none">
                 <div class="bg-slate-950/85 backdrop-blur-md border border-slate-800 p-2.5 rounded-lg text-slate-200">
-                  <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Salud Vegetal NDVI</div>
+                  <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Salud Vegetal NDVI
+                  </div>
                   <div class="flex items-center justify-between mt-1">
                     <span id="metric-ndvi" class="text-sm font-mono font-bold text-emerald-400">+0.78 (Optimo)</span>
                     <i data-lucide="trending-up" class="w-4 h-4 text-emerald-400"></i>
@@ -245,7 +327,8 @@
                 </div>
 
                 <div class="bg-slate-950/85 backdrop-blur-md border border-slate-800 p-2.5 rounded-lg text-slate-200">
-                  <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Latencia Procesamiento</div>
+                  <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Latencia Procesamiento
+                  </div>
                   <div class="flex items-center justify-between mt-1">
                     <span id="metric-latency" class="text-sm font-mono font-bold text-sky-400">14 ms (Nube)</span>
                     <i data-lucide="cpu" class="w-4 h-4 text-sky-400"></i>
@@ -253,7 +336,8 @@
                 </div>
               </div>
 
-              <div class="bg-slate-950 px-4 py-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <div
+                class="bg-slate-950 px-4 py-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
                 <span id="map-coords">Lat: -24.7859 | Lon: -65.4117 (Salta)</span>
                 <span>EPSG:4326 (WGS84)</span>
               </div>
@@ -298,7 +382,7 @@
     <!-- SECCIÓN DE CURSOS -->
     <section id="cursos" class="py-20 lg:py-28 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="text-center max-w-3xl mx-auto mb-12">
           <span class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 block">
             [ CATÁLOGO DE PROGRAMAS EXECUTIVE ]
@@ -307,21 +391,26 @@
             Especialización Geoespacial de Alto Rendimiento
           </h2>
           <p class="text-slate-600 text-base mt-3">
-            Diseñados por profesionales senior para aplicar herramientas de nivel empresarial en proyectos de impacto real.
+            Diseñados por profesionales senior para aplicar herramientas de nivel empresarial en proyectos de impacto
+            real.
           </p>
         </div>
 
         <div class="flex flex-wrap justify-center gap-2 mb-12 border-b border-slate-200 pb-4">
-          <button onclick="filterCourses('all')" id="filter-all" class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-semibold transition-all bg-slate-900 text-white shadow-sm">
+          <button onclick="filterCourses('all')" id="filter-all"
+            class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-semibold transition-all bg-slate-900 text-white shadow-sm">
             Todos los Cursos (5)
           </button>
-          <button onclick="filterCourses('fundamental')" id="filter-fundamental" class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
+          <button onclick="filterCourses('fundamental')" id="filter-fundamental"
+            class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
             Fundamentos & Desktop
           </button>
-          <button onclick="filterCourses('cloud')" id="filter-cloud" class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
+          <button onclick="filterCourses('cloud')" id="filter-cloud"
+            class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
             Nube & Web GIS
           </button>
-          <button onclick="filterCourses('advanced')" id="filter-advanced" class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
+          <button onclick="filterCourses('advanced')" id="filter-advanced"
+            class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
             Big Data & IA
           </button>
         </div>
@@ -329,10 +418,13 @@
         <div class="flex flex-wrap justify-center gap-8">
 
           <!-- CURSO 1: QGIS INICIAL A AVANZADO -->
-          <article class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative" data-category="fundamental">
+          <article
+            class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative"
+            data-category="fundamental">
             <div>
               <div class="flex items-center justify-between mb-4">
-                <span class="bg-slate-100 text-slate-800 text-[11px] font-bold px-3 py-1 rounded-md border border-slate-300 tracking-wider">
+                <span
+                  class="bg-slate-100 text-slate-800 text-[11px] font-bold px-3 py-1 rounded-md border border-slate-300 tracking-wider">
                   FUNDAMENTAL
                 </span>
                 <span class="text-xs text-slate-500 font-mono">40 Horas</span>
@@ -341,9 +433,10 @@
                 QGIS Inicial a Avanzado
               </h3>
               <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                Desde las bases cartográficas y geoprocesamiento hasta el modelado vectorial/ráster avanzado y composición cartográfica profesional.
+                Desde las bases cartográficas y geoprocesamiento hasta el modelado vectorial/ráster avanzado y
+                composición cartográfica profesional.
               </p>
-              
+
               <div class="border-t border-b border-slate-100 py-4 mb-6 space-y-2.5">
                 <div class="flex items-start gap-2.5 text-xs text-slate-700">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
@@ -362,12 +455,18 @@
 
             <div>
               <div class="flex flex-wrap gap-1.5 mb-6">
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">QGIS 3.3x</span>
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">GRASS</span>
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">SAGA</span>
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">PostGIS</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">QGIS
+                  3.3x</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">GRASS</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">SAGA</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">PostGIS</span>
               </div>
-              <button onclick="openCourseModal(1)" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
+              <button onclick="openCourseModal(1)"
+                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
                 <span>Ver Programa Completo</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
@@ -375,7 +474,9 @@
           </article>
 
           <!-- CURSO 2: CLOUD GIS -->
-          <article class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative" data-category="cloud">
+          <article
+            class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative"
+            data-category="cloud">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="bg-slate-700 text-white text-[11px] font-bold px-3 py-1 rounded-md tracking-wider">
@@ -387,9 +488,10 @@
                 Cloud GIS – GIS en la Nube
               </h3>
               <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                Despliegue de visores interactivos, tableros de control (dashboards), análisis sobre data warehouses y mapas vector tiles de gran velocidad.
+                Despliegue de visores interactivos, tableros de control (dashboards), análisis sobre data warehouses y
+                mapas vector tiles de gran velocidad.
               </p>
-              
+
               <div class="border-t border-b border-slate-100 py-4 mb-6 space-y-2.5">
                 <div class="flex items-start gap-2.5 text-xs text-slate-700">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
@@ -408,11 +510,16 @@
 
             <div>
               <div class="flex flex-wrap gap-1.5 mb-6">
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">CARTO</span>
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Mapbox</span>
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">ArcGIS Online</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">CARTO</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Mapbox</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">ArcGIS
+                  Online</span>
               </div>
-              <button onclick="openCourseModal(2)" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
+              <button onclick="openCourseModal(2)"
+                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
                 <span>Ver Programa Completo</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
@@ -420,7 +527,9 @@
           </article>
 
           <!-- CURSO 3: GOOGLE EARTH ENGINE -->
-          <article class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative" data-category="advanced">
+          <article
+            class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative"
+            data-category="advanced">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="bg-slate-900 text-white text-[11px] font-bold px-3 py-1 rounded-md tracking-wider">
@@ -432,9 +541,10 @@
                 Google Earth Engine (GEE)
               </h3>
               <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                Procesamiento masivo de imágenes satelitales a escala planetaria mediante JavaScript y Python sin saturar tu equipo local.
+                Procesamiento masivo de imágenes satelitales a escala planetaria mediante JavaScript y Python sin
+                saturar tu equipo local.
               </p>
-              
+
               <div class="border-t border-b border-slate-100 py-4 mb-6 space-y-2.5">
                 <div class="flex items-start gap-2.5 text-xs text-slate-700">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
@@ -453,11 +563,17 @@
 
             <div>
               <div class="flex flex-wrap gap-1.5 mb-6">
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Earth Engine</span>
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">JavaScript</span>
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Python API</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Earth
+                  Engine</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">JavaScript</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Python
+                  API</span>
               </div>
-              <button onclick="openCourseModal(3)" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
+              <button onclick="openCourseModal(3)"
+                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
                 <span>Ver Programa Completo</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
@@ -465,8 +581,11 @@
           </article>
 
           <!-- CURSO 4: GIS + IA -->
-          <article class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-terracotta/40 p-6 flex flex-col justify-between shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative" data-category="advanced">
-            <div class="absolute -top-3 right-6 bg-terracotta text-white text-[10px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full shadow-sm">
+          <article
+            class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-terracotta/40 p-6 flex flex-col justify-between shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative"
+            data-category="advanced">
+            <div
+              class="absolute -top-3 right-6 bg-terracotta text-white text-[10px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full shadow-sm">
               ★ MÁS DEMANDADO
             </div>
 
@@ -481,9 +600,10 @@
                 GIS + IA (Inteligencia Artificial Geoespacial)
               </h3>
               <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                Aplicación de algoritmos de Machine Learning (KNN, Random Forest), Deep Learning (Deepness/ONNX) y agentes de IA con MCP para la automatización de flujos geoespaciales.
+                Aplicación de algoritmos de Machine Learning (KNN, Random Forest), Deep Learning (Deepness/ONNX) y
+                agentes de IA con MCP para la automatización de flujos geoespaciales.
               </p>
-              
+
               <div class="border-t border-b border-slate-100 py-4 mb-6 space-y-2.5">
                 <div class="flex items-start gap-2.5 text-xs text-slate-700">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
@@ -502,12 +622,17 @@
 
             <div>
               <div class="flex flex-wrap gap-1.5 mb-6">
-                <span class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">PyTorch</span>
-                <span class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">ONNX</span>
-                <span class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">Deepness</span>
-                <span class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">Geo-MCP</span>
+                <span
+                  class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">PyTorch</span>
+                <span
+                  class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">ONNX</span>
+                <span
+                  class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">Deepness</span>
+                <span
+                  class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">Geo-MCP</span>
               </div>
-              <button onclick="openCourseModal(4)" class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm shadow-sm">
+              <button onclick="openCourseModal(4)"
+                class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm shadow-sm">
                 <span>Ver Programa Completo</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
@@ -515,7 +640,9 @@
           </article>
 
           <!-- CURSO 5: WEB MAPPING & GEOSERVICIOS -->
-          <article class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative" data-category="cloud">
+          <article
+            class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative"
+            data-category="cloud">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="bg-slate-700 text-white text-[11px] font-bold px-3 py-1 rounded-md tracking-wider">
@@ -527,9 +654,10 @@
                 Web Mapping & GeoServicios
               </h3>
               <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                Publicación e integración de servicios OGC (WMS/WFS), bases de datos PostGIS, GeoServer y desarrollo de visores web personalizados con Leaflet / Mapbox GL.
+                Publicación e integración de servicios OGC (WMS/WFS), bases de datos PostGIS, GeoServer y desarrollo de
+                visores web personalizados con Leaflet / Mapbox GL.
               </p>
-              
+
               <div class="border-t border-b border-slate-100 py-4 mb-6 space-y-2.5">
                 <div class="flex items-start gap-2.5 text-xs text-slate-700">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
@@ -548,12 +676,18 @@
 
             <div>
               <div class="flex flex-wrap gap-1.5 mb-6">
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">PostGIS</span>
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">GeoServer</span>
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Leaflet</span>
-                <span class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Mapbox GL</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">PostGIS</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">GeoServer</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Leaflet</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Mapbox
+                  GL</span>
               </div>
-              <button onclick="openCourseModal(5)" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
+              <button onclick="openCourseModal(5)"
+                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
                 <span>Ver Programa Completo</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
@@ -565,10 +699,188 @@
       </div>
     </section>
 
+    <!-- ============================================================ -->
+    <!-- SECCIÓN B2B / IN-COMPANY — CAPACITACIÓN CORPORATIVA         -->
+    <!-- ============================================================ -->
+    <section id="empresas" class="py-20 lg:py-28 bg-slate-900 relative overflow-hidden">
+
+      <!-- Fondo decorativo: curvas de nivel terracota -->
+      <div class="absolute inset-0 pointer-events-none z-0 opacity-40" aria-hidden="true">
+        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500"
+          preserveAspectRatio="xMidYMid slice">
+          <g fill="none" stroke="#C2410C" stroke-width="1" opacity="0.08">
+            <ellipse cx="100" cy="250" rx="90" ry="60" />
+            <ellipse cx="100" cy="250" rx="160" ry="110" />
+            <ellipse cx="100" cy="250" rx="240" ry="170" />
+            <ellipse cx="100" cy="250" rx="330" ry="230" />
+          </g>
+          <g fill="none" stroke="#334155" stroke-width="0.6" opacity="0.12">
+            <ellipse cx="1100" cy="250" rx="80" ry="50" />
+            <ellipse cx="1100" cy="250" rx="150" ry="95" />
+            <ellipse cx="1100" cy="250" rx="230" ry="150" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- ENCABEZADO -->
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div
+            class="inline-flex items-center gap-2 bg-terracotta/20 border border-terracotta/40 px-3 py-1.5 rounded-md mb-4">
+            <i data-lucide="building-2" class="w-4 h-4 text-terracotta"></i>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-terracotta">
+              [ CAPACITACIÓN CORPORATIVA E IN-COMPANY ]
+            </span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            Soluciones de Formación Técnica<br class="hidden sm:block"> para Equipos de Trabajo
+          </h2>
+          <p class="text-slate-400 text-base mt-4 leading-relaxed max-w-2xl mx-auto">
+            Diseñamos programas a medida para departamentos de <strong class="text-slate-200">Medio Ambiente, Geología y
+              Operaciones</strong>. Formación con datos e imágenes satelitales reales de sus propios proyectos.
+          </p>
+        </div>
+
+        <!-- GRID DE 3 FEATURES CON IMÁGENES REALES -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+
+          <!-- FEATURE 1: Adaptación a Proyectos Reales -->
+          <div
+            class="bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden shadow-lg hover:border-terracotta/50 transition-all duration-300 group">
+            <div class="h-44 overflow-hidden relative">
+              <img src="https://virginiadelval.github.io/sitio/assets/img/carousel/BASE_IMG1.jpg"
+                alt="Análisis de zona minera Cauchari - cartografía real"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent"></div>
+              <div
+                class="absolute top-3 left-3 bg-terracotta text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                Minería · Ambiente
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center mb-4">
+                <i data-lucide="map" class="w-5 h-5 text-terracotta"></i>
+              </div>
+              <h3 class="font-display text-lg font-bold text-white mb-2">Adaptación a Proyectos Reales</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Trabajos prácticos con la cartografía y datasets de la empresa. Imágenes satelitales de sus propias
+                áreas de operación, sin datos genéricos.
+              </p>
+            </div>
+          </div>
+
+          <!-- FEATURE 2: Flujos de Trabajo Estandarizados -->
+          <div
+            class="bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden shadow-lg hover:border-terracotta/50 transition-all duration-300 group">
+            <div class="h-44 overflow-hidden relative">
+              <img src="https://virginiadelval.github.io/sitio/assets/img/min/L8_2019.webp"
+                alt="Imagen Landsat 8 procesada - análisis de índices espectrales"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent"></div>
+              <div
+                class="absolute top-3 left-3 bg-slate-700 text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                Teledetección · GEE
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center mb-4">
+                <i data-lucide="workflow" class="w-5 h-5 text-terracotta"></i>
+              </div>
+              <h3 class="font-display text-lg font-bold text-white mb-2">Flujos de Trabajo Estandarizados</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Automatización en QGIS, Google Earth Engine y GIS Cloud para optimizar tareas de campo y oficina.
+                Protocolos reproducibles para todo el equipo.
+              </p>
+            </div>
+          </div>
+
+          <!-- FEATURE 3: Flexibilidad Operativa -->
+          <div
+            class="bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden shadow-lg hover:border-terracotta/50 transition-all duration-300 group">
+            <div class="h-44 overflow-hidden relative">
+              <img src="https://virginiadelval.github.io/sitio/assets/img/carousel/guachipas.jpg"
+                alt="Análisis territorial - planificación ambiental regional"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent"></div>
+              <div
+                class="absolute top-3 left-3 bg-slate-700 text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                Remoto · Presencial
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center mb-4">
+                <i data-lucide="clock" class="w-5 h-5 text-terracotta"></i>
+              </div>
+              <h3 class="font-display text-lg font-bold text-white mb-2">Flexibilidad Operativa</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Modalidades remotas o presenciales adaptadas a los turnos del equipo. Diseño curricular flexible según
+                las necesidades operativas del departamento.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- PANEL INFERIOR: SECTORES + CTA -->
+        <div
+          class="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+
+          <!-- Sectores que atendemos -->
+          <div class="flex-1">
+            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Sectores que Capacitamos</p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="mountain" class="w-4 h-4 text-terracotta shrink-0"></i>
+                <span>Minería</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="leaf" class="w-4 h-4 text-terracotta shrink-0"></i>
+                <span>Medio Ambiente</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="briefcase" class="w-4 h-4 text-terracotta shrink-0"></i>
+                <span>Consultoría</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="landmark" class="w-4 h-4 text-terracotta shrink-0"></i>
+                <span>Sector Público</span>
+              </div>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-2 text-xs">
+              <span class="bg-slate-700 text-slate-300 px-3 py-1 rounded-full border border-slate-600">✓ Evaluación
+                diagnóstica previa</span>
+              <span class="bg-slate-700 text-slate-300 px-3 py-1 rounded-full border border-slate-600">✓ Certificación
+                corporativa</span>
+              <span class="bg-slate-700 text-slate-300 px-3 py-1 rounded-full border border-slate-600">✓ Material
+                customizado</span>
+              <span class="bg-slate-700 text-slate-300 px-3 py-1 rounded-full border border-slate-600">✓ +1 alumno hasta
+                grupos de +15</span>
+            </div>
+          </div>
+
+          <!-- CTA B2B -->
+          <div class="shrink-0 flex flex-col items-center sm:items-end gap-3 text-center sm:text-right">
+            <p class="text-slate-400 text-xs max-w-xs">Contáctanos para recibir una propuesta técnica y económica sin
+              compromiso.</p>
+            <button onclick="openB2BModal()"
+              class="inline-flex items-center justify-center gap-2 border-2 border-slate-300 hover:border-terracotta text-slate-200 hover:text-white hover:bg-terracotta/10 font-bold px-7 py-3.5 rounded-xl transition-all duration-200 text-sm group">
+              <i data-lucide="send" class="w-4 h-4 group-hover:text-terracotta"></i>
+              <span>Solicitar Cotización In-Company</span>
+            </button>
+            <p class="text-[11px] text-slate-500">Respuesta en menos de 24 horas hábiles</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- SECCIÓN "POR QUÉ ELEGIR NUESTRA FORMACIÓN" (DIFERENCIADORES) -->
     <section id="metodologia" class="py-20 bg-white border-y border-slate-200 relative">
+
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="text-center max-w-3xl mx-auto mb-16">
           <span class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 block">
             [ METODOLOGÍA & VALOR AGREGADO ]
@@ -577,12 +889,13 @@
             ¿Por qué elegir nuestra propuesta formativa?
           </h2>
           <p class="text-slate-600 text-base mt-3">
-            Eliminamos el enfoque puramente teórico para centrarnos en flujos de trabajo profesionales exigidos por la industria geoespacial moderna.
+            Eliminamos el enfoque puramente teórico para centrarnos en flujos de trabajo profesionales exigidos por la
+            industria geoespacial moderna.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
+
           <div class="p-8 rounded-xl bg-pearl border border-slate-200 shadow-sm hover:border-slate-300 transition-all">
             <div class="w-12 h-12 rounded-lg bg-slate-900 text-white flex items-center justify-center mb-6 shadow-sm">
               <i data-lucide="folder-git-2" class="w-6 h-6 text-terracotta"></i>
@@ -591,7 +904,8 @@
               1. Casos de Estudio Reales
             </h3>
             <p class="text-slate-600 text-sm leading-relaxed mb-4">
-              Trabajarás directamente sobre proyectos aplicados a la minería, gestión ambiental, evaluación de riesgos de desastres y ordenamiento territorial.
+              Trabajarás directamente sobre proyectos aplicados a la minería, gestión ambiental, evaluación de riesgos
+              de desastres y ordenamiento territorial.
             </p>
             <ul class="text-xs text-slate-500 space-y-2">
               <li class="flex items-center gap-2">
@@ -611,14 +925,17 @@
               2. Entorno Tecnológico Actualizado
             </h3>
             <p class="text-slate-600 text-sm leading-relaxed mb-4">
-              Integración continua de herramientas de última generación: Python geoespacial, procesamiento en la nube, Inteligencia Artificial y agentes con protocolo MCP.
+              Integración continua de herramientas de última generación: Python geoespacial, procesamiento en la nube,
+              Inteligencia Artificial y agentes con protocolo MCP.
             </p>
             <ul class="text-xs text-slate-500 space-y-2">
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> Sin software obsoleto ni licencias caducadas
+                <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> Sin software obsoleto ni licencias
+                caducadas
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> Workflows automatizados de extremo a extremo
+                <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> Workflows automatizados de extremo a
+                extremo
               </li>
             </ul>
           </div>
@@ -631,12 +948,12 @@
               3. Atención & Comunidad Exclusiva
             </h3>
             <p class="text-slate-600 text-sm leading-relaxed mb-4">
-              Soporte técnico directo con mentores experimentados para resolver errores de proyecciones, inconsistencia en datasets y depuración de scripts.
+              Soporte técnico directo con mentores experimentados para resolver errores de proyecciones, inconsistencia
+              en datasets y depuración de scripts.
             </p>
             <ul class="text-xs text-slate-500 space-y-2">
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> Foro de dudas resolutivas < 24h
-              </li>
+                <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> Foro de dudas resolutivas < 24h </li>
               <li class="flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span> Red de contactos profesional alumni
               </li>
@@ -651,7 +968,7 @@
     <!-- SECCIÓN ECOSISTEMA TECNOLÓGICO -->
     <section id="ecosistema" class="py-20 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 block">
             [ ECOSISTEMA TECNOLÓGICO ]
@@ -665,23 +982,28 @@
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-          <div class="p-4 bg-white border border-slate-200 rounded-lg text-center shadow-sm hover:border-slate-400 transition-colors">
+          <div
+            class="p-4 bg-white border border-slate-200 rounded-lg text-center shadow-sm hover:border-slate-400 transition-colors">
             <div class="font-bold text-slate-900 text-sm">QGIS 3.3x</div>
             <div class="text-[11px] text-slate-500 mt-1">Desktop SIG & Geoprocesamiento</div>
           </div>
-          <div class="p-4 bg-white border border-slate-200 rounded-lg text-center shadow-sm hover:border-slate-400 transition-colors">
+          <div
+            class="p-4 bg-white border border-slate-200 rounded-lg text-center shadow-sm hover:border-slate-400 transition-colors">
             <div class="font-bold text-slate-900 text-sm">PostGIS</div>
             <div class="text-[11px] text-slate-500 mt-1">Base de Datos Espacial SQL</div>
           </div>
-          <div class="p-4 bg-white border border-slate-200 rounded-lg text-center shadow-sm hover:border-slate-400 transition-colors">
+          <div
+            class="p-4 bg-white border border-slate-200 rounded-lg text-center shadow-sm hover:border-slate-400 transition-colors">
             <div class="font-bold text-slate-900 text-sm">Google Earth Engine</div>
             <div class="text-[11px] text-slate-500 mt-1">Big Data Satelital Planetario</div>
           </div>
-          <div class="p-4 bg-white border border-slate-200 rounded-lg text-center shadow-sm hover:border-slate-400 transition-colors">
+          <div
+            class="p-4 bg-white border border-slate-200 rounded-lg text-center shadow-sm hover:border-slate-400 transition-colors">
             <div class="font-bold text-slate-900 text-sm">Leaflet / Mapbox</div>
             <div class="text-[11px] text-slate-500 mt-1">Librerías Web Mapping Frontend</div>
           </div>
-          <div class="p-4 bg-white border border-slate-200 rounded-lg text-center shadow-sm hover:border-slate-400 transition-colors">
+          <div
+            class="p-4 bg-white border border-slate-200 rounded-lg text-center shadow-sm hover:border-slate-400 transition-colors">
             <div class="font-bold text-slate-900 text-sm">Python Geo</div>
             <div class="text-[11px] text-slate-500 mt-1">GeoPandas, Rasterio, Shapely</div>
           </div>
@@ -693,13 +1015,14 @@
     <!-- TRAYECTORIA & RESPALDO PROFESIONAL (VIRGINIA DEL VAL) -->
     <section id="instructor" class="py-20 bg-white border-y border-slate-200">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="bg-pearl border border-slate-200 rounded-2xl p-8 sm:p-10 shadow-sm relative overflow-hidden">
-          
+
           <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center justify-center">
-            
+
             <div class="md:col-span-4 text-center">
-              <div class="w-40 h-40 rounded-full bg-slate-900 border-4 border-slate-200 mx-auto overflow-hidden flex items-center justify-center text-white shadow-xl relative">
+              <div
+                class="w-40 h-40 rounded-full bg-slate-900 border-4 border-slate-200 mx-auto overflow-hidden flex items-center justify-center text-white shadow-xl relative">
                 <span class="font-display font-bold text-4xl text-terracotta">VV</span>
               </div>
               <h3 class="font-display text-xl font-bold text-slate-900 mt-4">Virginia del Val</h3>
@@ -711,7 +1034,7 @@
             </div>
 
             <div class="md:col-span-8 space-y-4 text-sm leading-relaxed text-slate-600">
-              
+
               <span class="text-xs font-bold uppercase tracking-widest text-slate-500 block text-center md:text-left">
                 [ TRAYECTORIA & RESPALDO PROFESIONAL ]
               </span>
@@ -721,7 +1044,10 @@
               </h4>
 
               <p>
-                <strong>Virginia del Val</strong> ofrece servicios de consultoría especializada en <strong>Sistemas de Información Geográfica (S.I.G.), Teledetección, Web Mapping y Consultoría Ambiental</strong>, con una destacada trayectoria en el desarrollo de soluciones espaciales integrales para profesionales, empresas e instituciones.
+                <strong>Virginia del Val</strong> ofrece servicios de consultoría especializada en <strong>Sistemas de
+                  Información Geográfica (S.I.G.), Teledetección, Web Mapping y Consultoría Ambiental</strong>, con una
+                destacada trayectoria en el desarrollo de soluciones espaciales integrales para profesionales, empresas
+                e instituciones.
               </p>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
@@ -743,9 +1069,11 @@
                 </div>
               </div>
 
-              <div class="pt-3 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between text-xs gap-2">
+              <div
+                class="pt-3 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between text-xs gap-2">
                 <span class="text-slate-500 font-medium">Sitio Web Oficial de Consultoría:</span>
-                <a href="https://virginiadelval.github.io/sitio/" target="_blank" class="text-terracotta hover:underline font-bold flex items-center gap-1">
+                <a href="https://virginiadelval.github.io/sitio/" target="_blank"
+                  class="text-terracotta hover:underline font-bold flex items-center gap-1">
                   <span>virginiadelval.github.io/sitio</span>
                   <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                 </a>
@@ -763,7 +1091,7 @@
     <!-- INVERSIÓN ACADÉMICA MULTIMONEDA & CALCULADORA PERSONALIZADA DE CURSOS -->
     <section id="inversion" class="py-20 bg-pearl border-b border-slate-200 relative">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="text-center max-w-3xl mx-auto mb-12">
           <span class="text-xs font-bold uppercase tracking-widest text-terracotta mb-2 block">
             [ INVERSIÓN ACADÉMICA MULTIMONEDA A TU MEDIDA ]
@@ -772,12 +1100,16 @@
             Arma tu Plan de Formación o Elige el Pack Completo
           </h2>
           <p class="text-slate-600 text-sm mt-2">
-            Selecciona individualmente los cursos que deseas cursar o aprovecha la oferta especial del <strong>Programa Completo (5 Cursos)</strong>. Habilitado pago en <strong>3 cuotas sin interés</strong> y garantía de 15 días.
+            Selecciona individualmente los cursos que deseas cursar o aprovecha la oferta especial del <strong>Programa
+              Completo (5 Cursos)</strong>. Habilitado pago en <strong>3 cuotas sin interés</strong> y garantía de 15
+            días.
           </p>
 
-          <div class="mt-6 inline-flex items-center gap-2 bg-white p-1.5 rounded-xl border border-slate-200 text-xs font-semibold shadow-sm">
+          <div
+            class="mt-6 inline-flex items-center gap-2 bg-white p-1.5 rounded-xl border border-slate-200 text-xs font-semibold shadow-sm">
             <span class="text-slate-500 pl-2">Moneda de Pago:</span>
-            <select id="currency-selector" onchange="updatePricesCurrency(this.value)" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 text-slate-900 font-bold focus:outline-none focus:border-terracotta cursor-pointer">
+            <select id="currency-selector" onchange="updatePricesCurrency(this.value)"
+              class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 text-slate-900 font-bold focus:outline-none focus:border-terracotta cursor-pointer">
               <option value="USD">USD ($ Dólares)</option>
               <option value="EUR">EUR (€ Euros)</option>
               <option value="ARS">ARS ($ Pesos Argentinos)</option>
@@ -790,84 +1122,108 @@
         </div>
 
         <!-- CONTENEDOR PRINCIPAL: CALCULADORA INTERACTIVA DE CURSOS -->
-        <div class="bg-white border-2 border-slate-200 rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
-          
+        <div
+          class="bg-white border-2 border-slate-200 rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+
           <!-- COLUMNA IZQUIERDA: CHECKLIST DE CURSOS INDIVIDUALES -->
           <div class="lg:col-span-7 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-slate-200 space-y-5">
             <div class="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
                 <h3 class="font-display text-lg font-bold text-slate-900">Selección de Cursos</h3>
-                <p class="text-xs text-slate-500">Marca o desmarca las casillas según los cursos que quieras realizar</p>
+                <p class="text-xs text-slate-500">Marca o desmarca las casillas según los cursos que quieras realizar
+                </p>
               </div>
-              <button onclick="toggleSelectAllCourses()" id="btn-toggle-all" class="text-xs font-bold text-terracotta hover:underline bg-terracotta/10 px-3 py-1.5 rounded-lg border border-terracotta/20">
+              <button onclick="toggleSelectAllCourses()" id="btn-toggle-all"
+                class="text-xs font-bold text-terracotta hover:underline bg-terracotta/10 px-3 py-1.5 rounded-lg border border-terracotta/20">
                 Seleccionar Todos (Pack 5)
               </button>
             </div>
 
             <!-- LISTA DE CHECKBOXES POR CURSO -->
             <div class="space-y-3" id="courses-checklist">
-              
+
               <!-- CURSO 1 -->
-              <label class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
+              <label
+                class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
                 <div class="flex items-center gap-3">
-                  <input type="checkbox" value="1" checked onchange="calculateSelectedCourses()" class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
+                  <input type="checkbox" value="1" checked onchange="calculateSelectedCourses()"
+                    class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
                   <div>
                     <span class="font-bold text-slate-900 text-sm block">1. QGIS Inicial a Avanzado</span>
                     <span class="text-[11px] text-slate-500 font-mono">40 Horas | Fundamental SIG</span>
                   </div>
                 </div>
-                <span class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md" id="price-course-1">USD $29</span>
+                <span
+                  class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
+                  id="price-course-1">USD $29</span>
               </label>
 
               <!-- CURSO 2 -->
-              <label class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
+              <label
+                class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
                 <div class="flex items-center gap-3">
-                  <input type="checkbox" value="2" checked onchange="calculateSelectedCourses()" class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
+                  <input type="checkbox" value="2" checked onchange="calculateSelectedCourses()"
+                    class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
                   <div>
                     <span class="font-bold text-slate-900 text-sm block">2. Cloud GIS – GIS en la Nube</span>
                     <span class="text-[11px] text-slate-500 font-mono">50 Horas | Dashboards & Vector Tiles</span>
                   </div>
                 </div>
-                <span class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md" id="price-course-2">USD $35</span>
+                <span
+                  class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
+                  id="price-course-2">USD $35</span>
               </label>
 
               <!-- CURSO 3 -->
-              <label class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
+              <label
+                class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
                 <div class="flex items-center gap-3">
-                  <input type="checkbox" value="3" checked onchange="calculateSelectedCourses()" class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
+                  <input type="checkbox" value="3" checked onchange="calculateSelectedCourses()"
+                    class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
                   <div>
                     <span class="font-bold text-slate-900 text-sm block">3. Google Earth Engine (GEE)</span>
                     <span class="text-[11px] text-slate-500 font-mono">60 Horas | Big Data Satelital</span>
                   </div>
                 </div>
-                <span class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md" id="price-course-3">USD $39</span>
+                <span
+                  class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
+                  id="price-course-3">USD $39</span>
               </label>
 
               <!-- CURSO 4 -->
-              <label class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
+              <label
+                class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
                 <div class="flex items-center gap-3">
-                  <input type="checkbox" value="4" checked onchange="calculateSelectedCourses()" class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
+                  <input type="checkbox" value="4" checked onchange="calculateSelectedCourses()"
+                    class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
                   <div>
                     <div class="flex items-center gap-2">
                       <span class="font-bold text-slate-900 text-sm">4. GIS + IA (Machine Learning)</span>
-                      <span class="text-[9px] bg-terracotta text-white font-extrabold px-1.5 py-0.5 rounded">POPULAR</span>
+                      <span
+                        class="text-[9px] bg-terracotta text-white font-extrabold px-1.5 py-0.5 rounded">POPULAR</span>
                     </div>
                     <span class="text-[11px] text-slate-500 font-mono">55 Horas | IA & Agentes MCP</span>
                   </div>
                 </div>
-                <span class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md" id="price-course-4">USD $39</span>
+                <span
+                  class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
+                  id="price-course-4">USD $39</span>
               </label>
 
               <!-- CURSO 5 -->
-              <label class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
+              <label
+                class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
                 <div class="flex items-center gap-3">
-                  <input type="checkbox" value="5" checked onchange="calculateSelectedCourses()" class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
+                  <input type="checkbox" value="5" checked onchange="calculateSelectedCourses()"
+                    class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
                   <div>
                     <span class="font-bold text-slate-900 text-sm block">5. Web Mapping & GeoServicios</span>
                     <span class="text-[11px] text-slate-500 font-mono">45 Horas | PostGIS & Visores Web</span>
                   </div>
                 </div>
-                <span class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md" id="price-course-5">USD $35</span>
+                <span
+                  class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
+                  id="price-course-5">USD $35</span>
               </label>
 
             </div>
@@ -881,14 +1237,18 @@
 
           <!-- COLUMNA DERECHA: RESUMEN DE COMPRA & TOTAL DINÁMICO -->
           <div class="lg:col-span-5 p-6 sm:p-8 bg-slate-900 text-white flex flex-col justify-between relative">
-            
+
             <div class="space-y-6">
               <div>
                 <div class="flex items-center justify-between">
-                  <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Resumen de Inscripción</span>
-                  <span class="bg-terracotta/20 text-terracotta border border-terracotta/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono" id="selected-counter">5 de 5 Cursos</span>
+                  <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Resumen de
+                    Inscripción</span>
+                  <span
+                    class="bg-terracotta/20 text-terracotta border border-terracotta/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono"
+                    id="selected-counter">5 de 5 Cursos</span>
                 </div>
-                <h4 class="font-display text-xl font-bold text-white mt-2" id="selected-summary-title">Programa Completo (5 Cursos)</h4>
+                <h4 class="font-display text-xl font-bold text-white mt-2" id="selected-summary-title">Programa Completo
+                  (5 Cursos)</h4>
               </div>
 
               <!-- DESGLOSE DE PRECIO -->
@@ -900,7 +1260,8 @@
 
                 <div class="flex justify-between items-center text-emerald-400 font-medium">
                   <span>Descuento aplicado:</span>
-                  <span class="font-mono font-bold bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800" id="calc-discount">-45% Ahorro</span>
+                  <span class="font-mono font-bold bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800"
+                    id="calc-discount">-45% Ahorro</span>
                 </div>
 
                 <div class="border-t border-slate-800 pt-3 flex justify-between items-baseline">
@@ -913,9 +1274,11 @@
 
               <!-- OPCIÓN DE FINANCIACIÓN -->
               <div class="bg-emerald-950/40 border border-emerald-800/60 p-3.5 rounded-xl text-center">
-                <span class="text-[11px] uppercase font-bold tracking-wider text-emerald-400 block mb-0.5">Financiación en Cuotas</span>
+                <span class="text-[11px] uppercase font-bold tracking-wider text-emerald-400 block mb-0.5">Financiación
+                  en Cuotas</span>
                 <p class="text-xs text-slate-200" id="calc-installments">
-                  o <strong>3 cuotas mensuales sin interés</strong> de <span class="font-mono text-emerald-300 font-bold" id="calc-installment-price">USD $33/mes</span>
+                  o <strong>3 cuotas mensuales sin interés</strong> de <span
+                    class="font-mono text-emerald-300 font-bold" id="calc-installment-price">USD $33/mes</span>
                 </p>
               </div>
 
@@ -937,7 +1300,8 @@
 
             <!-- BOTÓN PROCESAR CHECKOUT -->
             <div class="mt-8 space-y-2">
-              <button onclick="openCheckoutModal()" id="btn-submit-checkout" class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg transition-all text-sm flex items-center justify-center gap-2">
+              <button onclick="openCheckoutModal()" id="btn-submit-checkout"
+                class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg transition-all text-sm flex items-center justify-center gap-2">
                 <i data-lucide="lock" class="w-4 h-4"></i>
                 <span id="btn-checkout-text">Inscribirme Ahora (USD $97)</span>
               </button>
@@ -956,7 +1320,7 @@
     <!-- PREGUNTAS FRECUENTES (FAQ ACCORDION CENTRADO) -->
     <section id="faq" class="py-20 bg-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="text-center mb-14">
           <span class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 block">
             [ DUDAS RESUELTAS ]
@@ -967,44 +1331,60 @@
         </div>
 
         <div class="space-y-4">
-          
+
           <div class="border border-slate-200 rounded-lg bg-pearl">
-            <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left font-semibold text-slate-900 flex justify-between items-center focus:outline-none">
+            <button onclick="toggleFaq(1)"
+              class="w-full px-6 py-4 text-left font-semibold text-slate-900 flex justify-between items-center focus:outline-none">
               <span>¿Necesito conocimientos previos en programación para ingresar?</span>
               <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform"></i>
             </button>
-            <div id="faq-ans-1" class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-              Para el programa <strong>QGIS Inicial a Avanzado</strong> no se requiere experiencia previa en código. Para los cursos avanzados como <em>Google Earth Engine</em>, <em>Web Mapping</em> o <em>GIS + IA</em>, entregamos módulos de nivelación en JavaScript y Python desde cero antes de iniciar las clases.
+            <div id="faq-ans-1"
+              class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+              Para el programa <strong>QGIS Inicial a Avanzado</strong> no se requiere experiencia previa en código.
+              Para los cursos avanzados como <em>Google Earth Engine</em>, <em>Web Mapping</em> o <em>GIS + IA</em>,
+              entregamos módulos de nivelación en JavaScript y Python desde cero antes de iniciar las clases.
             </div>
           </div>
 
           <div class="border border-slate-200 rounded-lg bg-pearl">
-            <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left font-semibold text-slate-900 flex justify-between items-center focus:outline-none">
+            <button onclick="toggleFaq(2)"
+              class="w-full px-6 py-4 text-left font-semibold text-slate-900 flex justify-between items-center focus:outline-none">
               <span>¿Cómo funciona la política de garantía de 15 días?</span>
               <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform"></i>
             </button>
-            <div id="faq-ans-2" class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-              Tienes 15 días continuos a partir de tu compra para explorar la plataforma. Si por cualquier motivo no estás satisfecho, nos escribes a <code>virginia.delval@gmail.com</code> o solicitas el reembolso directo y procesamos la devolución del 100% de tu dinero inmediatamente.
+            <div id="faq-ans-2"
+              class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+              Tienes 15 días continuos a partir de tu compra para explorar la plataforma. Si por cualquier motivo no
+              estás satisfecho, nos escribes a <code>virginia.delval@gmail.com</code> o solicitas el reembolso directo y
+              procesamos la devolución del 100% de tu dinero inmediatamente.
             </div>
           </div>
 
           <div class="border border-slate-200 rounded-lg bg-pearl">
-            <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-left font-semibold text-slate-900 flex justify-between items-center focus:outline-none">
+            <button onclick="toggleFaq(3)"
+              class="w-full px-6 py-4 text-left font-semibold text-slate-900 flex justify-between items-center focus:outline-none">
               <span>¿Qué tipo de certificación obtengo al finalizar el curso?</span>
               <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform"></i>
             </button>
-            <div id="faq-ans-3" class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-              Al aprobar el proyecto integrador final de cada programa, recibirás un <strong>Certificado Digital de Especialista Geoespacial</strong> respaldado por GEO|FORMA con código QR único de verificación para incluir en LinkedIn y CV.
+            <div id="faq-ans-3"
+              class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+              Al aprobar el proyecto integrador final de cada programa, recibirás un <strong>Certificado Digital de
+                Especialista Geoespacial</strong> respaldado por GEO|FORMA con código QR único de verificación para
+              incluir en LinkedIn y CV.
             </div>
           </div>
 
           <div class="border border-slate-200 rounded-lg bg-pearl">
-            <button onclick="toggleFaq(4)" class="w-full px-6 py-4 text-left font-semibold text-slate-900 flex justify-between items-center focus:outline-none">
+            <button onclick="toggleFaq(4)"
+              class="w-full px-6 py-4 text-left font-semibold text-slate-900 flex justify-between items-center focus:outline-none">
               <span>¿Cómo funciona el soporte técnico ante dudas durante la cursada?</span>
               <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform"></i>
             </button>
-            <div id="faq-ans-4" class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-              Contamos con un canal privado de soporte técnico en Discord/Slack directamente con Virginia del Val y tutores que responden consultas de código, errores de proyecciones o instalación en un plazo no mayor a 24 horas laborables.
+            <div id="faq-ans-4"
+              class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+              Contamos con un canal privado de soporte técnico en Discord/Slack directamente con Virginia del Val y
+              tutores que responden consultas de código, errores de proyecciones o instalación en un plazo no mayor a 24
+              horas laborables.
             </div>
           </div>
 
@@ -1016,7 +1396,7 @@
     <!-- BANNER FINAL CALL TO ACTION -->
     <section class="py-20 bg-slate-900 text-white relative overflow-hidden">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        
+
         <span class="text-xs font-bold uppercase tracking-widest text-terracotta mb-4 block">
           [ ELEVA TU PERFIL PROFESIONAL ]
         </span>
@@ -1024,14 +1404,17 @@
           Transforma tu Carrera en el Sector Geoespacial
         </h2>
         <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-light">
-          Únete a la nueva generación de ingenieros, geógrafos y científicos de datos que lideran la transformación digital del territorio.
+          Únete a la nueva generación de ingenieros, geógrafos y científicos de datos que lideran la transformación
+          digital del territorio.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#inversion" class="w-full sm:w-auto bg-terracotta hover:bg-terracotta-hover text-white font-bold px-8 py-4 rounded-lg shadow-lg transition-all text-base">
+          <a href="#inversion"
+            class="w-full sm:w-auto bg-terracotta hover:bg-terracotta-hover text-white font-bold px-8 py-4 rounded-lg shadow-lg transition-all text-base">
             Inscribirme con Garantía del 100%
           </a>
-          <button onclick="openAdvisoryModal()" class="w-full sm:w-auto border border-slate-700 hover:border-slate-500 text-slate-200 hover:text-white px-8 py-4 rounded-lg transition-all text-base">
+          <button onclick="openAdvisoryModal()"
+            class="w-full sm:w-auto border border-slate-700 hover:border-slate-500 text-slate-200 hover:text-white px-8 py-4 rounded-lg transition-all text-base">
             Solicitar Demostración Corporativa
           </button>
         </div>
@@ -1044,12 +1427,13 @@
   <!-- FOOTER -->
   <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-slate-900">
-        
+
         <div class="md:col-span-5 space-y-4">
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 bg-slate-900 rounded-lg flex items-center justify-center text-white border border-slate-800">
+            <div
+              class="w-9 h-9 bg-slate-900 rounded-lg flex items-center justify-center text-white border border-slate-800">
               <i data-lucide="layers" class="w-5 h-5 text-terracotta"></i>
             </div>
             <span class="font-display font-bold text-xl text-white tracking-tight">
@@ -1057,37 +1441,46 @@
             </span>
           </div>
           <p class="text-sm text-slate-400 leading-relaxed font-light max-w-sm">
-            Academia especializada en capacitación ejecutiva y técnica de vanguardia para Tecnologías Geoespaciales y SIG dictados por la consultora Virginia del Val.
+            Academia especializada en capacitación ejecutiva y técnica de vanguardia para Tecnologías Geoespaciales y
+            SIG dictados por la consultora Virginia del Val.
           </p>
           <div class="text-xs text-slate-400 space-y-1 pt-1">
             <p><strong>Contacto:</strong> virginia.delval@gmail.com | +54 9 387 4520570</p>
-            <p><strong>Sitio Web Oficial:</strong> <a href="https://virginiadelval.github.io/sitio/" target="_blank" class="text-terracotta hover:underline">virginiadelval.github.io/sitio</a></p>
+            <p><strong>Sitio Web Oficial:</strong> <a href="https://virginiadelval.github.io/sitio/" target="_blank"
+                class="text-terracotta hover:underline">virginiadelval.github.io/sitio</a></p>
           </div>
         </div>
 
         <div class="md:col-span-3 space-y-3">
           <h4 class="text-xs font-bold text-slate-200 uppercase tracking-widest">Programas</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="#cursos" onclick="openCourseModal(1)" class="hover:text-white transition-colors">QGIS Inicial a Avanzado</a></li>
-            <li><a href="#cursos" onclick="openCourseModal(2)" class="hover:text-white transition-colors">Cloud GIS</a></li>
-            <li><a href="#cursos" onclick="openCourseModal(3)" class="hover:text-white transition-colors">Google Earth Engine</a></li>
-            <li><a href="#cursos" onclick="openCourseModal(4)" class="hover:text-white transition-colors">GIS + IA (Machine Learning)</a></li>
-            <li><a href="#cursos" onclick="openCourseModal(5)" class="hover:text-white transition-colors">Web Mapping & GeoServicios</a></li>
+            <li><a href="#cursos" onclick="openCourseModal(1)" class="hover:text-white transition-colors">QGIS Inicial a
+                Avanzado</a></li>
+            <li><a href="#cursos" onclick="openCourseModal(2)" class="hover:text-white transition-colors">Cloud GIS</a>
+            </li>
+            <li><a href="#cursos" onclick="openCourseModal(3)" class="hover:text-white transition-colors">Google Earth
+                Engine</a></li>
+            <li><a href="#cursos" onclick="openCourseModal(4)" class="hover:text-white transition-colors">GIS + IA
+                (Machine Learning)</a></li>
+            <li><a href="#cursos" onclick="openCourseModal(5)" class="hover:text-white transition-colors">Web Mapping &
+                GeoServicios</a></li>
           </ul>
         </div>
 
-        <div class="md:col-span-4 space-y-4">
+        <!-- <div class="md:col-span-4 space-y-4">
           <h4 class="text-xs font-bold text-slate-200 uppercase tracking-widest">Boletín Técnico Geoespacial</h4>
           <p class="text-xs text-slate-400">
             Recibe artículos sobre nuevas herramientas, webinars gratuitos y análisis de datasets directo en tu correo.
           </p>
           <form onsubmit="handleNewsletter(event)" class="flex gap-2">
-            <input type="email" required placeholder="tu.correo@empresa.com" class="bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-terracotta flex-1">
-            <button type="submit" class="bg-terracotta hover:bg-terracotta-hover text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+            <input type="email" required placeholder="tu.correo@empresa.com"
+              class="bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-terracotta flex-1">
+            <button type="submit"
+              class="bg-terracotta hover:bg-terracotta-hover text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
               Unirme
             </button>
           </form>
-        </div>
+        </div> -->
 
       </div>
 
@@ -1106,9 +1499,12 @@
   </footer>
 
   <!-- MODAL DETALLE DE CURSO (SYLLABUS) -->
-  <div id="course-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-white border border-slate-200 rounded-2xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative my-8 custom-scrollbar max-h-[90vh] overflow-y-auto">
-      <button onclick="closeCourseModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 p-1 rounded-lg">
+  <div id="course-modal"
+    class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div
+      class="bg-white border border-slate-200 rounded-2xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative my-8 custom-scrollbar max-h-[90vh] overflow-y-auto">
+      <button onclick="closeCourseModal()"
+        class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 p-1 rounded-lg">
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
       <div id="modal-content"></div>
@@ -1116,9 +1512,11 @@
   </div>
 
   <!-- MODAL CHECKOUT MULTIMONEDA -->
-  <div id="checkout-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-white border border-slate-200 rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative custom-scrollbar max-h-[90vh] overflow-y-auto">
-      
+  <div id="checkout-modal"
+    class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div
+      class="bg-white border border-slate-200 rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative custom-scrollbar max-h-[90vh] overflow-y-auto">
+
       <button onclick="closeCheckoutModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700">
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
@@ -1127,30 +1525,35 @@
         <span class="text-xs font-bold text-terracotta uppercase tracking-wider block mb-1">CHECKOUT MULTIMONEDA</span>
         <h3 class="font-display text-2xl font-bold text-slate-900">Matrícula Programa GEO|FORMA</h3>
         <p class="text-xs text-slate-600 mt-1">Con garantía incondicional de devolución de 15 días.</p>
-        <div id="checkout-courses-summary" class="mt-3 bg-slate-50 border border-slate-200 p-2.5 rounded-lg text-xs text-slate-700 font-medium"></div>
+        <div id="checkout-courses-summary"
+          class="mt-3 bg-slate-50 border border-slate-200 p-2.5 rounded-lg text-xs text-slate-700 font-medium"></div>
       </div>
 
       <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4 text-sm">
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre Completo *</label>
-          <input type="text" required placeholder="Ej. Carlos Mendoza" class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
+          <input type="text" required placeholder="Ej. Carlos Mendoza"
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
         </div>
-        
+
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Correo Electrónico *</label>
-          <input type="email" required placeholder="tu.correo@empresa.com" class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
+          <input type="email" required placeholder="tu.correo@empresa.com"
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
         </div>
 
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Plan de Financiamiento *</label>
           <div class="grid grid-cols-2 gap-2">
-            <label class="border border-slate-300 rounded-lg p-3 cursor-pointer hover:border-terracotta flex flex-col items-center text-center">
+            <label
+              class="border border-slate-300 rounded-lg p-3 cursor-pointer hover:border-terracotta flex flex-col items-center text-center">
               <input type="radio" name="payment_plan" value="single" checked class="mb-1 text-terracotta">
               <span class="font-bold text-slate-900 text-xs">Pago Único</span>
               <span class="text-xs text-slate-500 font-mono" id="modal-single-price">USD $97</span>
             </label>
-            
-            <label class="border border-slate-300 rounded-lg p-3 cursor-pointer hover:border-terracotta flex flex-col items-center text-center">
+
+            <label
+              class="border border-slate-300 rounded-lg p-3 cursor-pointer hover:border-terracotta flex flex-col items-center text-center">
               <input type="radio" name="payment_plan" value="installments" class="mb-1 text-terracotta">
               <span class="font-bold text-slate-900 text-xs">3 Cuotas sin Interés</span>
               <span class="text-xs text-emerald-600 font-mono" id="modal-installment-price">3x USD $33/mes</span>
@@ -1160,7 +1563,8 @@
 
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Pasarela / Método de Pago *</label>
-          <select id="payment-gateway" required class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none bg-white font-medium">
+          <select id="payment-gateway" required
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none bg-white font-medium">
             <option value="stripe">💳 Stripe (Tarjeta Crédito/Débito Internacional)</option>
             <option value="paypal">🅿️ PayPal (Internacional)</option>
             <option value="hotmart">🔥 Hotmart Checkout (Tarjeta / Efectivo / Cuotas LATAM)</option>
@@ -1168,12 +1572,14 @@
           </select>
         </div>
 
-        <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-lg text-xs text-emerald-800 flex items-center gap-2">
+        <div
+          class="bg-emerald-50 border border-emerald-200 p-3 rounded-lg text-xs text-emerald-800 flex items-center gap-2">
           <i data-lucide="shield-check" class="w-5 h-5 shrink-0 text-emerald-600"></i>
           <span>Protegido con <strong>Garantía Total de 15 Días</strong> de reembolso.</span>
         </div>
 
-        <button type="submit" class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-extrabold py-3.5 rounded-xl shadow-md transition-colors text-sm">
+        <button type="submit"
+          class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-extrabold py-3.5 rounded-xl shadow-md transition-colors text-sm">
           Confirmar e Ir a la Pasarela de Pago &rarr;
         </button>
       </form>
@@ -1181,7 +1587,8 @@
   </div>
 
   <!-- MODAL AGENDAR ASESORÍA -->
-  <div id="advisory-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+  <div id="advisory-modal"
+    class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white border border-slate-200 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
       <button onclick="closeAdvisoryModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 p-1">
         <i data-lucide="x" class="w-6 h-6"></i>
@@ -1190,21 +1597,25 @@
       <div class="mb-6 text-center">
         <span class="text-xs font-bold text-terracotta uppercase tracking-wider block mb-1">ORIENTACIÓN ACADÉMICA</span>
         <h3 class="font-display text-2xl font-bold text-slate-900">Agendar Asesoría Técnica</h3>
-        <p class="text-xs text-slate-600 mt-1">Conversa directamente con Virginia del Val para elegir el programa ideal.</p>
+        <p class="text-xs text-slate-600 mt-1">Conversa directamente con Virginia del Val para elegir el programa ideal.
+        </p>
       </div>
 
       <form onsubmit="handleAdvisorySubmit(event)" class="space-y-4 text-sm">
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre Completo *</label>
-          <input type="text" required class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
+          <input type="text" required
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
         </div>
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Correo Corporativo / Personal *</label>
-          <input type="email" required class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
+          <input type="email" required
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
         </div>
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Programa de Interés *</label>
-          <select required class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none bg-white">
+          <select required
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none bg-white">
             <option value="qgis">QGIS Inicial a Avanzado</option>
             <option value="cloud">Cloud GIS – GIS en la Nube</option>
             <option value="gee">Google Earth Engine (GEE)</option>
@@ -1212,7 +1623,8 @@
             <option value="webmapping">Web Mapping & GeoServicios</option>
           </select>
         </div>
-        <button type="submit" class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-bold py-3 rounded-lg shadow-sm transition-colors text-sm">
+        <button type="submit"
+          class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-bold py-3 rounded-lg shadow-sm transition-colors text-sm">
           Confirmar Solicitud de Asesoría
         </button>
       </form>
@@ -1220,7 +1632,8 @@
   </div>
 
   <!-- TOAST NOTIFICACIÓN -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 text-white px-5 py-3.5 rounded-lg shadow-xl border border-slate-700 text-xs sm:text-sm font-medium flex items-center gap-3">
+  <div id="toast"
+    class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 text-white px-5 py-3.5 rounded-lg shadow-xl border border-slate-700 text-xs sm:text-sm font-medium flex items-center gap-3">
     <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
     <span id="toast-message">Mensaje enviado con éxito.</span>
   </div>
@@ -1245,13 +1658,13 @@
       });
 
       const activeBtn = document.getElementById(`filter-${category}`);
-      if(activeBtn) {
+      if (activeBtn) {
         activeBtn.classList.remove('text-slate-600', 'hover:bg-slate-200/60');
         activeBtn.classList.add('bg-slate-900', 'text-white');
       }
 
       cards.forEach(card => {
-        if(category === 'all' || card.getAttribute('data-category') === category) {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
@@ -1334,7 +1747,7 @@
 
     function openCourseModal(id) {
       const course = coursesData[id];
-      if(!course) return;
+      if (!course) return;
 
       const modalContent = document.getElementById('modal-content');
       modalContent.innerHTML = `
@@ -1403,15 +1816,15 @@
       const inputs = document.querySelectorAll('.course-check-input');
       const selectedIds = [];
       inputs.forEach(input => {
-        if(input.checked) selectedIds.push(parseInt(input.value));
+        if (input.checked) selectedIds.push(parseInt(input.value));
       });
 
       const currData = coursePrices[currentSelectedCurrency] || coursePrices.USD;
       const count = selectedIds.length;
-      
-      for(let i = 1; i <= 5; i++) {
+
+      for (let i = 1; i <= 5; i++) {
         const pElem = document.getElementById(`price-course-${i}`);
-        if(pElem) {
+        if (pElem) {
           pElem.innerText = `${currData.symbol}${currData.individual[i].toLocaleString()}`;
         }
       }
@@ -1426,23 +1839,23 @@
       const btnSubmit = document.getElementById('btn-submit-checkout');
       const btnToggleAll = document.getElementById('btn-toggle-all');
 
-      if(btnToggleAll) {
+      if (btnToggleAll) {
         btnToggleAll.innerText = count === 5 ? "Desmarcar Todos" : "Seleccionar Todos (Pack 5)";
       }
 
-      if(count === 0) {
-        if(counterElem) counterElem.innerText = "0 Cursos";
-        if(titleElem) titleElem.innerText = "Ningún Curso Seleccionado";
-        if(subtotalElem) subtotalElem.innerText = `${currData.symbol}0`;
-        if(discountElem) discountElem.innerText = "0%";
-        if(totalElem) totalElem.innerText = `${currData.symbol}0`;
-        if(installmentPriceElem) installmentPriceElem.innerText = `${currData.symbol}0/mes`;
-        if(btnCheckoutText) btnCheckoutText.innerText = "Selecciona al menos 1 Curso";
-        if(btnSubmit) btnSubmit.disabled = true;
+      if (count === 0) {
+        if (counterElem) counterElem.innerText = "0 Cursos";
+        if (titleElem) titleElem.innerText = "Ningún Curso Seleccionado";
+        if (subtotalElem) subtotalElem.innerText = `${currData.symbol}0`;
+        if (discountElem) discountElem.innerText = "0%";
+        if (totalElem) totalElem.innerText = `${currData.symbol}0`;
+        if (installmentPriceElem) installmentPriceElem.innerText = `${currData.symbol}0/mes`;
+        if (btnCheckoutText) btnCheckoutText.innerText = "Selecciona al menos 1 Curso";
+        if (btnSubmit) btnSubmit.disabled = true;
         return;
       }
 
-      if(btnSubmit) btnSubmit.disabled = false;
+      if (btnSubmit) btnSubmit.disabled = false;
 
       let subtotal = 0;
       selectedIds.forEach(id => {
@@ -1452,46 +1865,46 @@
       let discountPercent = 0;
       let finalTotal = subtotal;
 
-      if(count === 1) {
+      if (count === 1) {
         discountPercent = 0;
         finalTotal = subtotal;
-        if(titleElem) titleElem.innerText = "Inscripción 1 Curso Individual";
-      } else if(count === 2) {
+        if (titleElem) titleElem.innerText = "Inscripción 1 Curso Individual";
+      } else if (count === 2) {
         discountPercent = 10;
         finalTotal = Math.round(subtotal * 0.90);
-        if(titleElem) titleElem.innerText = "Pack 2 Cursos (-10%)";
-      } else if(count === 3) {
+        if (titleElem) titleElem.innerText = "Pack 2 Cursos (-10%)";
+      } else if (count === 3) {
         discountPercent = 15;
         finalTotal = Math.round(subtotal * 0.85);
-        if(titleElem) titleElem.innerText = "Pack 3 Cursos (-15%)";
-      } else if(count === 4) {
+        if (titleElem) titleElem.innerText = "Pack 3 Cursos (-15%)";
+      } else if (count === 4) {
         discountPercent = 25;
         finalTotal = Math.round(subtotal * 0.75);
-        if(titleElem) titleElem.innerText = "Pack 4 Cursos (-25%)";
-      } else if(count === 5) {
+        if (titleElem) titleElem.innerText = "Pack 4 Cursos (-25%)";
+      } else if (count === 5) {
         discountPercent = Math.round((1 - currData.pack5 / subtotal) * 100);
         finalTotal = currData.pack5;
-        if(titleElem) titleElem.innerText = "Programa Completo (5 Cursos)";
+        if (titleElem) titleElem.innerText = "Programa Completo (5 Cursos)";
       }
 
       const installmentPrice = Math.round(finalTotal / 3);
 
-      if(counterElem) counterElem.innerText = `${count} de 5 Cursos`;
-      if(subtotalElem) subtotalElem.innerText = `${currData.symbol}${subtotal.toLocaleString()}`;
-      if(discountElem) {
+      if (counterElem) counterElem.innerText = `${count} de 5 Cursos`;
+      if (subtotalElem) subtotalElem.innerText = `${currData.symbol}${subtotal.toLocaleString()}`;
+      if (discountElem) {
         discountElem.innerText = count === 1 ? 'Sin Descuento' : `-${discountPercent}% Ahorro`;
       }
-      if(totalElem) totalElem.innerText = `${currData.symbol}${finalTotal.toLocaleString()}`;
-      if(installmentPriceElem) installmentPriceElem.innerText = `${currData.symbol}${installmentPrice.toLocaleString()}/mes`;
-      if(btnCheckoutText) btnCheckoutText.innerText = `Inscribirme Ahora (${currData.symbol}${finalTotal.toLocaleString()})`;
+      if (totalElem) totalElem.innerText = `${currData.symbol}${finalTotal.toLocaleString()}`;
+      if (installmentPriceElem) installmentPriceElem.innerText = `${currData.symbol}${installmentPrice.toLocaleString()}/mes`;
+      if (btnCheckoutText) btnCheckoutText.innerText = `Inscribirme Ahora (${currData.symbol}${finalTotal.toLocaleString()})`;
 
       const modalSinglePrice = document.getElementById('modal-single-price');
       const modalInstallmentPrice = document.getElementById('modal-installment-price');
-      if(modalSinglePrice) modalSinglePrice.innerText = `${currData.symbol}${finalTotal.toLocaleString()}`;
-      if(modalInstallmentPrice) modalInstallmentPrice.innerText = `3x ${currData.symbol}${installmentPrice.toLocaleString()}/mes`;
+      if (modalSinglePrice) modalSinglePrice.innerText = `${currData.symbol}${finalTotal.toLocaleString()}`;
+      if (modalInstallmentPrice) modalInstallmentPrice.innerText = `3x ${currData.symbol}${installmentPrice.toLocaleString()}/mes`;
 
       const checkoutCoursesSummary = document.getElementById('checkout-courses-summary');
-      if(checkoutCoursesSummary) {
+      if (checkoutCoursesSummary) {
         const courseNames = {
           1: "QGIS Inicial a Avanzado",
           2: "Cloud GIS",
@@ -1523,7 +1936,7 @@
       });
       calculateSelectedCourses();
       const invSec = document.getElementById('inversion');
-      if(invSec) invSec.scrollIntoView({ behavior: 'smooth' });
+      if (invSec) invSec.scrollIntoView({ behavior: 'smooth' });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -1565,7 +1978,7 @@
     function toggleFaq(id) {
       const ans = document.getElementById(`faq-ans-${id}`);
       const icon = document.getElementById(`faq-icon-${id}`);
-      if(ans.classList.contains('hidden')) {
+      if (ans.classList.contains('hidden')) {
         ans.classList.remove('hidden');
         icon.classList.add('rotate-180');
       } else {
@@ -1584,4 +1997,5 @@
     }
   </script>
 </body>
+
 </html>

@@ -92,14 +92,14 @@ function initHeroMap() {
 function loadSaltaGeoServerServices() {
   if (!mapInstance) return;
 
-  // 1. Capa WMS Cuencas de Salta (GeoServer Municipalidad de Salta)
+  // 1. Capa WMS  de Salta (GeoServer  de Salta)
   try {
     saltaCuencasWmsLayer = L.tileLayer.wms(SALTA_GEOSERVER_CONFIG.wmsUrl, {
-      layers: SALTA_GEOSERVER_CONFIG.layers.cuencas,
+      layers: SALTA_GEOSERVER_CONFIG.layers.planhidricorector__01__cuencas_por_sistema,
       format: 'image/png',
       transparent: true,
       opacity: 0.5,
-      attribution: 'Municipalidad de Salta | GeoServer Cuencas'
+      attribution: 'Municipalidad de Salta'
     }).addTo(mapInstance);
   } catch (err) {
     console.log("GeoServer WMS Cuencas fallback local activo.");
@@ -111,7 +111,7 @@ function loadSaltaGeoServerServices() {
       layers: SALTA_GEOSERVER_CONFIG.layers.escuelas,
       format: 'image/png',
       transparent: true,
-      attribution: 'Municipalidad de Salta | GeoServer Escuelas'
+      attribution: 'IDEMSa'
     }).addTo(mapInstance);
   } catch (err) {
     console.log("GeoServer WMS Escuelas fallback local activo.");
@@ -131,7 +131,7 @@ function loadSaltaGeoServerServices() {
     weight: 2,
     dashArray: '4, 4'
   }).addTo(mapInstance);
-  cuencaPolygon.bindPopup("<b>Cuenca Hidrográfica del Río Arenales / Arias</b><br>Municipalidad de Salta");
+  cuencaPolygon.bindPopup("<b>Area de Influencia Directa</b><br>");
 
   // 4. Puntos de Establecimientos Educativos reales en Salta Capital
   escuelasLayerGroup = L.layerGroup();
