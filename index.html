@@ -67,6 +67,12 @@
   <!-- MÓDULO INDEPENDIENTE DEL MAPA (js/map.js) -->
   <script src="js/map.js" defer></script>
 
+  <!-- MÓDULO INDEPENDIENTE DE COTIZACIÓN DE MONEDAS EN VIVO (js/currency.js) -->
+  <script src="js/currency.js" defer></script>
+
+  <!-- MÓDULO INDEPENDIENTE DE ENVÍO DE FORMULARIOS POR MAIL (js/mailer.js) -->
+  <script src="js/mailer.js" defer></script>
+
   <style>
     .leaflet-container {
       background: #0B0F17 !important;
@@ -98,7 +104,7 @@
   <div
     class="bg-slate-900 text-slate-300 text-xs py-2 px-4 text-center border-b border-slate-800 font-medium relative z-50 flex items-center justify-center gap-2">
     <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-    <span><strong>Próxima Cohorte 2026-II:</strong> Inscripciones abiertas con becas parciales corporativas.</span>
+    <span><strong>Inician en Octubre 2026. </strong> Consulta las modalidades.</span>
     <a href="#inversion" class="text-terracotta hover:underline ml-2 font-semibold hidden sm:inline">Ver Opciones de
       Pago &rarr;</a>
   </div>
@@ -427,7 +433,7 @@
                   class="bg-slate-100 text-slate-800 text-[11px] font-bold px-3 py-1 rounded-md border border-slate-300 tracking-wider">
                   FUNDAMENTAL
                 </span>
-                <span class="text-xs text-slate-500 font-mono">40 Horas</span>
+                <span class="text-xs text-slate-500 font-mono">60 - 100 Horas</span>
               </div>
               <h3 class="font-display text-xl font-bold text-slate-900 mb-2">
                 QGIS Inicial a Avanzado
@@ -861,6 +867,8 @@
 
           <!-- CTA B2B -->
           <div class="shrink-0 flex flex-col items-center sm:items-end gap-3 text-center sm:text-right">
+            
+            
             <p class="text-slate-400 text-xs max-w-xs">Contáctanos para recibir una propuesta técnica y económica sin
               compromiso.</p>
             <button onclick="openB2BModal()"
@@ -1023,7 +1031,10 @@
             <div class="md:col-span-4 text-center">
               <div
                 class="w-40 h-40 rounded-full bg-slate-900 border-4 border-slate-200 mx-auto overflow-hidden flex items-center justify-center text-white shadow-xl relative">
-                <span class="font-display font-bold text-4xl text-terracotta">VV</span>
+                  <img src="/components/vdelval.jpeg"
+                alt="Virginia del Val - Especialista SIG, Teledetección y Web Mapping"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+               
               </div>
               <h3 class="font-display text-xl font-bold text-slate-900 mt-4">Virginia del Val</h3>
               <p class="text-xs font-semibold text-terracotta">Especialista SIG, Teledetección & Web Mapping</p>
@@ -1071,7 +1082,7 @@
 
               <div
                 class="pt-3 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between text-xs gap-2">
-                <span class="text-slate-500 font-medium">Sitio Web Oficial de Consultoría:</span>
+                <span class="text-slate-500 font-medium">Web Oficial:</span>
                 <a href="https://virginiadelval.github.io/sitio/" target="_blank"
                   class="text-terracotta hover:underline font-bold flex items-center gap-1">
                   <span>virginiadelval.github.io/sitio</span>
@@ -1079,6 +1090,15 @@
                 </a>
               </div>
 
+               <div
+                class="pt-3 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between text-xs gap-2">
+                <span class="text-slate-500 font-medium">LinkedIn:</span>
+                <a href="https://www.linkedin.com/in/virginia-del-val/" target="_blank"
+                  class="text-terracotta hover:underline font-bold flex items-center gap-1">
+                  <span>Virginia del Val</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
 
           </div>
@@ -1423,7 +1443,156 @@
     </section>
 
   </main>
+<!-- SECCIÓN DE COTIZACIÓN IN-COMPANY -->
+<!-- MODAL DE COTIZACIÓN IN-COMPANY -->
+<div id="b2bModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+  <div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 sm:p-8 my-8 max-h-[90vh] overflow-y-auto">
+    
+    <!-- Botón para Cerrar (X) -->
+    <button 
+      onclick="closeB2BModal()" 
+      type="button"
+      class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-2 rounded-lg hover:bg-slate-100 transition-colors"
+      aria-label="Cerrar modal"
+    >
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
 
+    <!-- Encabezado del Modal -->
+    <div class="text-center mb-8 pr-6">
+      <span class="text-xs font-bold text-terracotta uppercase tracking-wider block mb-1">
+        PROPUESTA TÉCNICA Y ECONÓMICA SIN COMPROMISO
+      </span>
+      <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Solicitar Cotización In-Company
+      </h3>
+      <p class="text-sm text-slate-600 mt-2">
+        Capacitamos a tu equipo con programas adaptados a los proyectos de tu empresa. Respuesta en menos de 24 hs hábiles.
+      </p>
+    </div>
+
+    <!-- Formulario In-Company -->
+    <form onsubmit="handleInCompanySubmit(event)" class="space-y-5 text-sm">
+      
+      <!-- Fila 1: Empresa y Responsable -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
+            Nombre de la Empresa u Organización *
+          </label>
+          <input 
+            type="text" 
+            name="empresa" 
+            required 
+            placeholder="Ej. Minera del Norte S.A." 
+            class="w-full border border-slate-300 rounded-lg p-3 text-slate-900 focus:border-terracotta focus:ring-1 focus:ring-terracotta outline-none"
+          >
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
+            Responsable Solicitante *
+          </label>
+          <input 
+            type="text" 
+            name="responsable_nombre" 
+            required 
+            placeholder="Nombre y Apellido" 
+            class="w-full border border-slate-300 rounded-lg p-3 text-slate-900 focus:border-terracotta focus:ring-1 focus:ring-terracotta outline-none"
+          >
+        </div>
+      </div>
+
+      <!-- Fila 2: Teléfono y Email -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
+            Teléfono de Contacto *
+          </label>
+          <input 
+            type="tel" 
+            name="telefono" 
+            required 
+            placeholder="Ej. +54 9 387 1234567" 
+            class="w-full border border-slate-300 rounded-lg p-3 text-slate-900 focus:border-terracotta focus:ring-1 focus:ring-terracotta outline-none"
+          >
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
+            Correo Electrónico *
+          </label>
+          <input 
+            type="email" 
+            name="email" 
+            required 
+            placeholder="contacto@empresa.com" 
+            class="w-full border border-slate-300 rounded-lg p-3 text-slate-900 focus:border-terracotta focus:ring-1 focus:ring-terracotta outline-none"
+          >
+        </div>
+      </div>
+
+      <!-- Fila 3: Curso e Integrantes -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="sm:col-span-2">
+          <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
+            Curso de Interés *
+          </label>
+          <select 
+            name="curso_interes" 
+            required 
+            class="w-full border border-slate-300 rounded-lg p-3 text-slate-900 bg-white focus:border-terracotta focus:ring-1 focus:ring-terracotta outline-none font-medium"
+          >
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="qgis">QGIS Inicial a Avanzado</option>
+            <option value="cloud">Cloud GIS – GIS en la Nube</option>
+            <option value="gee">Google Earth Engine (GEE)</option>
+            <option value="ia">GIS + IA (Machine Learning)</option>
+            <option value="webmapping">Web Mapping & GeoServicios</option>
+            <option value="personalizado">Capacitación a Medida / Múltiples Cursos</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
+            N° Personas *
+          </label>
+          <input 
+            type="number" 
+            name="cantidad_personas" 
+            min="1" 
+            required 
+            placeholder="Ej. 10" 
+            class="w-full border border-slate-300 rounded-lg p-3 text-slate-900 focus:border-terracotta focus:ring-1 focus:ring-terracotta outline-none"
+          >
+        </div>
+      </div>
+
+      <!-- Fila 4: Detalle del Requerimiento -->
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
+          Detalle de la Necesidad / Proyecto
+        </label>
+        <textarea 
+          name="detalles_necesidad" 
+          rows="3" 
+          placeholder="Describe brevemente tus requerimientos específicos o flujo de trabajo actual..." 
+          class="w-full border border-slate-300 rounded-lg p-3 text-slate-900 focus:border-terracotta focus:ring-1 focus:ring-terracotta outline-none resize-y"
+        ></textarea>
+      </div>
+
+      <!-- Botón de Envío -->
+      <button 
+        type="submit" 
+        class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-extrabold py-3.5 px-6 rounded-xl shadow-md transition-colors text-base flex items-center justify-center gap-2"
+      >
+        <span>Solicitar Propuesta</span>
+        <i data-lucide="send" class="w-4 h-4"></i>
+      </button>
+
+    </form>
+  </div>
+</div>
   <!-- FOOTER -->
   <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1445,7 +1614,7 @@
             SIG dictados por la consultora Virginia del Val.
           </p>
           <div class="text-xs text-slate-400 space-y-1 pt-1">
-            <p><strong>Contacto:</strong> virginia.delval@gmail.com | +54 9 387 4520570</p>
+            <p><strong>Contacto:</strong> virginia.delval@gmail.com | +54 9 387 4045804</p>
             <p><strong>Sitio Web Oficial:</strong> <a href="https://virginiadelval.github.io/sitio/" target="_blank"
                 class="text-terracotta hover:underline">virginiadelval.github.io/sitio</a></p>
           </div>
@@ -1498,6 +1667,7 @@
     </div>
   </footer>
 
+  
   <!-- MODAL DETALLE DE CURSO (SYLLABUS) -->
   <div id="course-modal"
     class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
@@ -1532,13 +1702,13 @@
       <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4 text-sm">
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre Completo *</label>
-          <input type="text" required placeholder="Ej. Carlos Mendoza"
+          <input type="text" name="nombre_completo" required placeholder="Ej. Carlos Mendoza"
             class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
         </div>
 
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Correo Electrónico *</label>
-          <input type="email" required placeholder="tu.correo@empresa.com"
+          <input type="email" name="email" required placeholder="tu.correo@empresa.com"
             class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
         </div>
 
@@ -1563,7 +1733,7 @@
 
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Pasarela / Método de Pago *</label>
-          <select id="payment-gateway" required
+          <select id="payment-gateway" name="pasarela_pago" required
             class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none bg-white font-medium">
             <option value="stripe">💳 Stripe (Tarjeta Crédito/Débito Internacional)</option>
             <option value="paypal">🅿️ PayPal (Internacional)</option>
@@ -1604,17 +1774,17 @@
       <form onsubmit="handleAdvisorySubmit(event)" class="space-y-4 text-sm">
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre Completo *</label>
-          <input type="text" required
+          <input type="text" name="nombre_completo" required
             class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
         </div>
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Correo Corporativo / Personal *</label>
-          <input type="email" required
+          <input type="email" name="email" required
             class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
         </div>
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Programa de Interés *</label>
-          <select required
+          <select name="programa_interes" required
             class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none bg-white">
             <option value="qgis">QGIS Inicial a Avanzado</option>
             <option value="cloud">Cloud GIS – GIS en la Nube</option>
@@ -1800,19 +1970,19 @@
       document.getElementById('course-modal').classList.add('hidden');
     }
 
-    const coursePrices = {
-      USD: { individual: { 1: 29, 2: 35, 3: 39, 4: 39, 5: 35 }, pack5: 97, symbol: "USD $" },
-      EUR: { individual: { 1: 27, 2: 32, 3: 36, 4: 36, 5: 32 }, pack5: 89, symbol: "€ " },
-      ARS: { individual: { 1: 28000, 2: 34000, 3: 38000, 4: 38000, 5: 34000 }, pack5: 95000, symbol: "ARS $" },
-      MXN: { individual: { 1: 500, 2: 600, 3: 670, 4: 670, 5: 600 }, pack5: 1650, symbol: "MXN $" },
-      COP: { individual: { 1: 115000, 2: 138000, 3: 154000, 4: 154000, 5: 138000 }, pack5: 380000, symbol: "COP $" },
-      CLP: { individual: { 1: 26000, 2: 32000, 3: 35000, 4: 35000, 5: 32000 }, pack5: 88000, symbol: "CLP $" },
-      PEN: { individual: { 1: 110, 2: 130, 3: 145, 4: 145, 5: 130 }, pack5: 360, symbol: "S/ " }
-    };
+    // NOTA: la tabla de precios "coursePrices" ya NO se define acá de forma fija.
+    // Ahora la genera automáticamente el módulo independiente js/currency.js
+    // a partir del precio base en ARS y la cotización de cada moneda.
+    // Ver js/currency.js -> BASE_PRICES_ARS para editar los precios en pesos argentinos.
 
     let currentSelectedCurrency = 'USD';
 
     function calculateSelectedCourses() {
+      // coursePrices lo genera js/currency.js de forma asíncrona (cotización en vivo).
+      // Si todavía no está disponible (primer instante de carga), no hacemos nada:
+      // currency.js volverá a llamar a esta función en cuanto tenga los precios listos.
+      if (typeof coursePrices === 'undefined' || !coursePrices) return;
+
       const inputs = document.querySelectorAll('.course-check-input');
       const selectedIds = [];
       inputs.forEach(input => {
@@ -1950,11 +2120,29 @@
     function closeCheckoutModal() {
       document.getElementById('checkout-modal').classList.add('hidden');
     }
-    function handleCheckoutSubmit(e) {
+    async function handleCheckoutSubmit(e) {
       e.preventDefault();
+      const form = e.target;
       const gateway = document.getElementById('payment-gateway').value;
+
+      // Arma el objeto con los datos del formulario + contexto de la compra,
+      // y lo envía por correo mediante el módulo js/mailer.js
+      const payload = extractFormData(form);
+      payload._subject = "Nueva Matrícula - GEO|FORMA";
+      const cursosSummaryElem = document.getElementById('checkout-courses-summary');
+      if (cursosSummaryElem) payload.cursos_seleccionados = cursosSummaryElem.innerText;
+      const singlePriceElem = document.getElementById('modal-single-price');
+      if (singlePriceElem) payload.precio_pago_unico = singlePriceElem.innerText;
+      const installmentPriceElem = document.getElementById('modal-installment-price');
+      if (installmentPriceElem) payload.precio_en_cuotas = installmentPriceElem.innerText;
+
       closeCheckoutModal();
       showToast(`Redirigiendo a la pasarela segura de ${gateway.toUpperCase()}...`);
+
+      const enviado = await sendFormDataByEmail(payload);
+      if (!enviado) {
+        showToast("No pudimos enviar la notificación por correo. Por favor intenta nuevamente.");
+      }
     }
 
     function openAdvisoryModal() {
@@ -1963,10 +2151,22 @@
     function closeAdvisoryModal() {
       document.getElementById('advisory-modal').classList.add('hidden');
     }
-    function handleAdvisorySubmit(e) {
+    async function handleAdvisorySubmit(e) {
       e.preventDefault();
+      const form = e.target;
+
+      // Arma el objeto con los datos del formulario y lo envía por correo
+      // mediante el módulo js/mailer.js
+      const payload = extractFormData(form);
+      payload._subject = "Nueva Solicitud de Asesoría - GEO|FORMA";
+
       closeAdvisoryModal();
       showToast("Solicitud enviada directamente a Virginia del Val.");
+
+      const enviado = await sendFormDataByEmail(payload);
+      if (!enviado) {
+        showToast("No pudimos enviar la solicitud por correo. Por favor intenta nuevamente.");
+      }
     }
 
     function handleNewsletter(e) {
@@ -1995,7 +2195,42 @@
         toast.classList.add('hidden');
       }, 4000);
     }
+
+// Formulario empresarial
+ // Abrir el modal
+function openB2BModal() {
+  const modal = document.getElementById('b2bModal');
+  if (modal) {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Evita el scroll del sitio de fondo
+  }
+}
+
+// Cerrar el modal
+function closeB2BModal() {
+  const modal = document.getElementById('b2bModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto'; // Restablece el scroll
+  }
+}
+
+// Enviar el formulario
+function handleInCompanySubmit(event) {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+  const data = Object.fromEntries(formData.entries());
+
+  console.log("Datos de cotización In-Company recibidos:", data);
+
+  alert(`¡Gracias ${data.responsable_nombre}! Hemos recibido la solicitud para ${data.empresa}. Nos pondremos en contacto al correo ${data.email} a la brevedad.`);
+
+  event.target.reset();
+  closeB2BModal();
+}
   </script>
+  
 </body>
 
 </html>
