@@ -28,8 +28,18 @@
 
 // ---- 1) PRECIO BASE, en pesos argentinos (ARS). Editar sólo acá. ----
 const BASE_PRICES_ARS = {
-  individual: { 1: 28000, 2: 34000, 3: 38000, 4: 38000, 5: 34000 },
-  pack5: 95000
+  individual: {
+    1: 240000, // QGIS Inicial (4 sem / 60 hs)
+    2: 330000, // QGIS Avanzado (5 sem / 100 hs)
+    3: 240000, // Plataformas WEB - CARTO (4 sem / 60 hs)
+    4: 270000, // Google Earth Engine (4 sem / 60 hs)
+    5: 330000, // GIS + IA (4 sem / 80 hs)
+    6: 350000, // Web Mapping (5 sem / 100 hs)
+    7: 290000  // Fotogrametría con Drones - Inicial (4 sem / 60 hs)
+  },
+  pack7: 1330000, // Pack Completo 7 Cursos (Ahorro ~35% sobre $2.050.000)
+  packAll: 1330000,
+  pack5: 1050000
 };
 
 // ---- 2) Símbolo a mostrar junto a cada precio ----
@@ -72,6 +82,8 @@ function buildCoursePricesFromRates(ratesArsPerUnit) {
   const newCoursePrices = {
     ARS: {
       individual: { ...BASE_PRICES_ARS.individual },
+      pack7: BASE_PRICES_ARS.pack7,
+      packAll: BASE_PRICES_ARS.packAll,
       pack5: BASE_PRICES_ARS.pack5,
       symbol: CURRENCY_SYMBOLS.ARS
     }
@@ -88,6 +100,8 @@ function buildCoursePricesFromRates(ratesArsPerUnit) {
 
     newCoursePrices[currencyCode] = {
       individual,
+      pack7: Math.round(BASE_PRICES_ARS.pack7 / arsPerUnit),
+      packAll: Math.round(BASE_PRICES_ARS.packAll / arsPerUnit),
       pack5: Math.round(BASE_PRICES_ARS.pack5 / arsPerUnit),
       symbol: CURRENCY_SYMBOLS[currencyCode] || `${currencyCode} `
     };

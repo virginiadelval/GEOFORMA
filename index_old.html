@@ -67,8 +67,8 @@
   <!-- MÓDULO INDEPENDIENTE DEL MAPA (js/map.js) -->
   <script src="js/map.js" defer></script>
 
-    <!-- MÓDULO INDEPENDIENTE DE CURSOS (js/courses-module.js) -->
-  <script src="js/courses-module.js" defer></script>
+    <!-- MÓDULO INDEPENDIENTE DE CURSOS (js/courses-config.js) -->
+  <script src="js/courses-config.js" defer></script>
 
   <!-- MÓDULO INDEPENDIENTE DE COTIZACIÓN DE MONEDAS EN VIVO (js/currency.js) -->
   <script src="js/currency.js" defer></script>
@@ -375,7 +375,7 @@
           </div>
 
           <div class="pt-4 lg:pt-0">
-            <div class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">7</div>
+            <div class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">5</div>
             <div class="text-xs sm:text-sm font-medium text-slate-500 mt-1 uppercase tracking-wider">Cursos Especializados</div>
           </div>
 
@@ -404,32 +404,306 @@
             real.
           </p>
         </div>
-    <!-- Filtros de categoría -->
-    <div class="flex flex-wrap justify-center gap-2 mb-12 border-b border-slate-200 pb-4">
-      <button onclick="filterCourses('all')" id="filter-all"
-        class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-semibold transition-all bg-slate-900 text-white shadow-sm">
-        Todos los Cursos (7)
-      </button>
-      <button onclick="filterCourses('fundamental')" id="filter-fundamental"
-        class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
-        Fundamentos & Desktop
-      </button>
-      <button onclick="filterCourses('cloud')" id="filter-cloud"
-        class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
-        Nube & Web GIS
-      </button>
-      <button onclick="filterCourses('advanced')" id="filter-advanced"
-        class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
-        Big Data & IA
-      </button>
-    </div>
 
-    <!-- Contenedor dinámico donde JavaScript insertará las tarjetas -->
-    <div class="flex flex-wrap justify-center gap-8" id="courses-container">
-      <!-- Se genera dinámicamente -->
-    </div>
+        <div class="flex flex-wrap justify-center gap-2 mb-12 border-b border-slate-200 pb-4">
+          <button onclick="filterCourses('all')" id="filter-all"
+            class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-semibold transition-all bg-slate-900 text-white shadow-sm">
+            Todos los Cursos (5)
+          </button>
+          <button onclick="filterCourses('fundamental')" id="filter-fundamental"
+            class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
+            Fundamentos & Desktop
+          </button>
+          <button onclick="filterCourses('cloud')" id="filter-cloud"
+            class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
+            Nube & Web GIS
+          </button>
+          <button onclick="filterCourses('advanced')" id="filter-advanced"
+            class="course-filter-btn px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all">
+            Big Data & IA
+          </button>
+        </div>
 
+        <div class="flex flex-wrap justify-center gap-8">
 
+          <!-- CURSO 1: QGIS INICIAL A AVANZADO -->
+          <article
+            class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative"
+            data-category="fundamental">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="bg-slate-100 text-slate-800 text-[11px] font-bold px-3 py-1 rounded-md border border-slate-300 tracking-wider">
+                  FUNDAMENTAL
+                </span>
+                <span class="text-xs text-slate-500 font-mono">60 - 100 Horas</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-slate-900 mb-2">
+                QGIS Inicial a Avanzado
+              </h3>
+              <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                Desde las bases cartográficas y geoprocesamiento hasta el modelado vectorial/ráster avanzado y
+                composición cartográfica profesional.
+              </p>
+
+              <div class="border-t border-b border-slate-100 py-4 mb-6 space-y-2.5">
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Geoprocesamiento espacial y modelador gráfico de flujos</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Análisis de elevación DEM y álgebra de mapas ráster</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Composición de mapas impresos con Atlas automatizado</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">QGIS
+                  3.3x</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">GRASS</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">SAGA</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">PostGIS</span>
+              </div>
+              <button onclick="openCourseModal(1)"
+                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
+                <span>Ver Programa Completo</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- CURSO 2: CLOUD GIS -->
+          <article
+            class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative"
+            data-category="cloud">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="bg-slate-700 text-white text-[11px] font-bold px-3 py-1 rounded-md tracking-wider">
+                  INFRAESTRUCTURA & CLOUD
+                </span>
+                <span class="text-xs text-slate-500 font-mono">50 Horas</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-slate-900 mb-2">
+                Cloud GIS – GIS en la Nube
+              </h3>
+              <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                Despliegue de visores interactivos, tableros de control (dashboards), análisis sobre data warehouses y
+                mapas vector tiles de gran velocidad.
+              </p>
+
+              <div class="border-t border-b border-slate-100 py-4 mb-6 space-y-2.5">
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Creación de Dashboards interactivos para toma de decisiones</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Publicación de Vector Tiles dinámicos de baja latencia</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Consultas espaciales SQL en la nube con Snowflake & BigQuery</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">CARTO</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Mapbox</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">ArcGIS
+                  Online</span>
+              </div>
+              <button onclick="openCourseModal(2)"
+                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
+                <span>Ver Programa Completo</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- CURSO 3: GOOGLE EARTH ENGINE -->
+          <article
+            class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative"
+            data-category="advanced">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="bg-slate-900 text-white text-[11px] font-bold px-3 py-1 rounded-md tracking-wider">
+                  BIG DATA SPATIAL
+                </span>
+                <span class="text-xs text-slate-500 font-mono">60 Horas</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-slate-900 mb-2">
+                Google Earth Engine (GEE)
+              </h3>
+              <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                Procesamiento masivo de imágenes satelitales a escala planetaria mediante JavaScript y Python sin
+                saturar tu equipo local.
+              </p>
+
+              <div class="border-t border-b border-slate-100 py-4 mb-6 space-y-2.5">
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Series de tiempo satelitales (Sentinel-2, Landsat 8/9, MODIS)</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Cálculo de índices espectrales (NDVI, NDWI, EVI, NBR)</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Monitoreo de deforestación e incendios forestales</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Earth
+                  Engine</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">JavaScript</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Python
+                  API</span>
+              </div>
+              <button onclick="openCourseModal(3)"
+                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
+                <span>Ver Programa Completo</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- CURSO 4: GIS + IA -->
+          <article
+            class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-terracotta/40 p-6 flex flex-col justify-between shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative"
+            data-category="advanced">
+            <div
+              class="absolute -top-3 right-6 bg-terracotta text-white text-[10px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full shadow-sm">
+              ★ MÁS DEMANDADO
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="bg-terracotta text-white text-[11px] font-bold px-3 py-1 rounded-md tracking-wider">
+                  INNOVACIÓN & MACHINE LEARNING
+                </span>
+                <span class="text-xs text-slate-500 font-mono">55 Horas</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-slate-900 mb-2">
+                GIS + IA (Inteligencia Artificial Geoespacial)
+              </h3>
+              <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                Aplicación de algoritmos de Machine Learning (KNN, Random Forest), Deep Learning (Deepness/ONNX) y
+                agentes de IA con MCP para la automatización de flujos geoespaciales.
+              </p>
+
+              <div class="border-t border-b border-slate-100 py-4 mb-6 space-y-2.5">
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Detección de objetos en imágenes de alta resolución (Drones/Satélite)</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Clasificación de coberturas mediante Random Forest y CNNs</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Uso de Agentes de IA con protocolo MCP en workflows SIG</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span
+                  class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">PyTorch</span>
+                <span
+                  class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">ONNX</span>
+                <span
+                  class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">Deepness</span>
+                <span
+                  class="bg-orange-50 text-terracotta text-[10px] font-semibold px-2.5 py-1 rounded border border-terracotta/20">Geo-MCP</span>
+              </div>
+              <button onclick="openCourseModal(4)"
+                class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm shadow-sm">
+                <span>Ver Programa Completo</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- CURSO 5: WEB MAPPING & GEOSERVICIOS -->
+          <article
+            class="course-card w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative"
+            data-category="cloud">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="bg-slate-700 text-white text-[11px] font-bold px-3 py-1 rounded-md tracking-wider">
+                  DESARROLLO WEB
+                </span>
+                <span class="text-xs text-slate-500 font-mono">45 Horas</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-slate-900 mb-2">
+                Web Mapping & GeoServicios
+              </h3>
+              <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                Publicación e integración de servicios OGC (WMS/WFS), bases de datos PostGIS, GeoServer y desarrollo de
+                visores web personalizados con Leaflet / Mapbox GL.
+              </p>
+
+              <div class="border-t border-b border-slate-100 py-4 mb-6 space-y-2.5">
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Servicios OGC estándar (WMS, WFS, WMTS)</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Bases de datos espaciales PostGIS & consultas SQL avanzadas</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs text-slate-700">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                  <span>Desarrollo de visores web a medida con Leaflet & Mapbox GL JS</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">PostGIS</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">GeoServer</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Leaflet</span>
+                <span
+                  class="bg-slate-50 text-slate-600 text-[10px] font-medium px-2.5 py-1 rounded border border-slate-200">Mapbox
+                  GL</span>
+              </div>
+              <button onclick="openCourseModal(5)"
+                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">
+                <span>Ver Programa Completo</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </article>
+
+        </div>
 
       </div>
     </section>
@@ -850,7 +1124,7 @@
           </h2>
           <p class="text-slate-600 text-sm mt-2">
             Selecciona individualmente los cursos que deseas cursar o aprovecha la oferta especial del <strong>Programa
-              Completo (7 Cursos)</strong>. Habilitado pago en <strong>3 cuotas sin interés</strong> y garantía de 15
+              Completo (5 Cursos)</strong>. Habilitado pago en <strong>3 cuotas sin interés</strong> y garantía de 15
             días.
           </p>
 
@@ -861,7 +1135,7 @@
               class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 text-slate-900 font-bold focus:outline-none focus:border-terracotta cursor-pointer">
               <option value="USD">USD ($ Dólares)</option>
               <option value="EUR">EUR (€ Euros)</option>
-              <option value="ARS" selected>ARS ($ Pesos Argentinos)</option>
+              <option value="ARS">ARS ($ Pesos Argentinos)</option>
               <option value="MXN">MXN ($ Pesos Mexicanos)</option>
               <option value="COP">COP ($ Pesos Colombianos)</option>
               <option value="CLP">CLP ($ Pesos Chilenos)</option>
@@ -884,7 +1158,7 @@
               </div>
               <button onclick="toggleSelectAllCourses()" id="btn-toggle-all"
                 class="text-xs font-bold text-terracotta hover:underline bg-terracotta/10 px-3 py-1.5 rounded-lg border border-terracotta/20">
-                Seleccionar Todos (Pack 7)
+                Seleccionar Todos (Pack 5)
               </button>
             </div>
 
@@ -898,13 +1172,13 @@
                   <input type="checkbox" value="1" checked onchange="calculateSelectedCourses()"
                     class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
                   <div>
-                    <span class="font-bold text-slate-900 text-sm block">1. QGIS Inicial</span>
-                    <span class="text-[11px] text-slate-500 font-mono">4 Semanas — 60 Horas | Fundamental SIG</span>
+                    <span class="font-bold text-slate-900 text-sm block">1. QGIS Inicial a Avanzado</span>
+                    <span class="text-[11px] text-slate-500 font-mono">40 Horas | Fundamental SIG</span>
                   </div>
                 </div>
                 <span
                   class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
-                  id="price-course-1">ARS $240.000</span>
+                  id="price-course-1">USD $29</span>
               </label>
 
               <!-- CURSO 2 -->
@@ -914,13 +1188,13 @@
                   <input type="checkbox" value="2" checked onchange="calculateSelectedCourses()"
                     class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
                   <div>
-                    <span class="font-bold text-slate-900 text-sm block">2. QGIS Avanzado</span>
-                    <span class="text-[11px] text-slate-500 font-mono">5 Semanas — 100 Horas | Modelador & Ráster</span>
+                    <span class="font-bold text-slate-900 text-sm block">2. Cloud GIS – GIS en la Nube</span>
+                    <span class="text-[11px] text-slate-500 font-mono">50 Horas | Dashboards & Vector Tiles</span>
                   </div>
                 </div>
                 <span
                   class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
-                  id="price-course-2">ARS $330.000</span>
+                  id="price-course-2">USD $35</span>
               </label>
 
               <!-- CURSO 3 -->
@@ -930,13 +1204,13 @@
                   <input type="checkbox" value="3" checked onchange="calculateSelectedCourses()"
                     class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
                   <div>
-                    <span class="font-bold text-slate-900 text-sm block">3. Plataformas WEB - CARTO</span>
-                    <span class="text-[11px] text-slate-500 font-mono">4 Semanas — 60 Horas | Cloud Dashboards</span>
+                    <span class="font-bold text-slate-900 text-sm block">3. Google Earth Engine (GEE)</span>
+                    <span class="text-[11px] text-slate-500 font-mono">60 Horas | Big Data Satelital</span>
                   </div>
                 </div>
                 <span
                   class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
-                  id="price-course-3">ARS $240.000</span>
+                  id="price-course-3">USD $39</span>
               </label>
 
               <!-- CURSO 4 -->
@@ -946,13 +1220,17 @@
                   <input type="checkbox" value="4" checked onchange="calculateSelectedCourses()"
                     class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
                   <div>
-                    <span class="font-bold text-slate-900 text-sm block">4. Google Earth Engine (GEE)</span>
-                    <span class="text-[11px] text-slate-500 font-mono">4 Semanas — 60 Horas | Big Data Satelital</span>
+                    <div class="flex items-center gap-2">
+                      <span class="font-bold text-slate-900 text-sm">4. GIS + IA (Machine Learning)</span>
+                      <span
+                        class="text-[9px] bg-terracotta text-white font-extrabold px-1.5 py-0.5 rounded">POPULAR</span>
+                    </div>
+                    <span class="text-[11px] text-slate-500 font-mono">55 Horas | IA & Agentes MCP</span>
                   </div>
                 </div>
                 <span
                   class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
-                  id="price-course-4">ARS $270.000</span>
+                  id="price-course-4">USD $39</span>
               </label>
 
               <!-- CURSO 5 -->
@@ -962,53 +1240,13 @@
                   <input type="checkbox" value="5" checked onchange="calculateSelectedCourses()"
                     class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
                   <div>
-                    <div class="flex items-center gap-2">
-                      <span class="font-bold text-slate-900 text-sm">5. GIS + IA (Machine Learning)</span>
-                      <span
-                        class="text-[9px] bg-terracotta text-white font-extrabold px-1.5 py-0.5 rounded">POPULAR</span>
-                    </div>
-                    <span class="text-[11px] text-slate-500 font-mono">4 Semanas — 80 Horas | Deep Learning & MCP</span>
+                    <span class="font-bold text-slate-900 text-sm block">5. Web Mapping & GeoServicios</span>
+                    <span class="text-[11px] text-slate-500 font-mono">45 Horas | PostGIS & Visores Web</span>
                   </div>
                 </div>
                 <span
                   class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
-                  id="price-course-5">ARS $330.000</span>
-              </label>
-
-              <!-- CURSO 6 -->
-              <label
-                class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" value="6" checked onchange="calculateSelectedCourses()"
-                    class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
-                  <div>
-                    <span class="font-bold text-slate-900 text-sm block">6. Web Mapping & GeoServicios</span>
-                    <span class="text-[11px] text-slate-500 font-mono">5 Semanas — 100 Horas | PostGIS & Leaflet/Mapbox</span>
-                  </div>
-                </div>
-                <span
-                  class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
-                  id="price-course-6">ARS $350.000</span>
-              </label>
-
-              <!-- CURSO 7 -->
-              <label
-                class="course-checkbox-item flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-terracotta/60 bg-slate-50/50 hover:bg-slate-50 cursor-pointer transition-all">
-                <div class="flex items-center gap-3">
-                  <input type="checkbox" value="7" checked onchange="calculateSelectedCourses()"
-                    class="course-check-input w-4 h-4 text-terracotta rounded border-slate-300 focus:ring-terracotta cursor-pointer">
-                  <div>
-                    <div class="flex items-center gap-2">
-                      <span class="font-bold text-slate-900 text-sm">7. Fotogrametría con Drones – Inicial</span>
-                      <span
-                        class="text-[9px] bg-slate-900 text-white font-extrabold px-1.5 py-0.5 rounded">NUEVO</span>
-                    </div>
-                    <span class="text-[11px] text-slate-500 font-mono">4 Semanas — 60 Horas | Ortomosaicos & 3D</span>
-                  </div>
-                </div>
-                <span
-                  class="font-mono font-bold text-xs text-slate-800 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
-                  id="price-course-7">ARS $290.000</span>
+                  id="price-course-5">USD $35</span>
               </label>
 
             </div>
@@ -1030,10 +1268,10 @@
                     Inscripción</span>
                   <span
                     class="bg-terracotta/20 text-terracotta border border-terracotta/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono"
-                    id="selected-counter">7 de 7 Cursos</span>
+                    id="selected-counter">5 de 5 Cursos</span>
                 </div>
                 <h4 class="font-display text-xl font-bold text-white mt-2" id="selected-summary-title">Programa Completo
-                  (7 Cursos)</h4>
+                  (5 Cursos)</h4>
               </div>
 
               <!-- DESGLOSE DE PRECIO -->
@@ -1286,13 +1524,11 @@
             <select name="curso_interes" required
               class="w-full border border-slate-300 rounded-lg p-3 text-slate-900 bg-white focus:border-terracotta focus:ring-1 focus:ring-terracotta outline-none font-medium">
               <option value="" disabled selected>Selecciona una opción...</option>
-              <option value="qgis_ini">1. QGIS Inicial (60 hs)</option>
-              <option value="qgis_av">2. QGIS Avanzado (100 hs)</option>
-              <option value="carto">3. Plataformas WEB - CARTO (60 hs)</option>
-              <option value="gee">4. Google Earth Engine - GEE (60 hs)</option>
-              <option value="ia">5. GIS + IA - Machine Learning (80 hs)</option>
-              <option value="webmapping">6. Web Mapping & GeoServicios (100 hs)</option>
-              <option value="drones">7. Fotogrametría con Drones – Inicial (60 hs)</option>
+              <option value="qgis">QGIS Inicial a Avanzado</option>
+              <option value="cloud">Cloud GIS – GIS en la Nube</option>
+              <option value="gee">Google Earth Engine (GEE)</option>
+              <option value="ia">GIS + IA (Machine Learning)</option>
+              <option value="webmapping">Web Mapping & GeoServicios</option>
               <option value="personalizado">Capacitación a Medida / Múltiples Cursos</option>
             </select>
           </div>
@@ -1356,13 +1592,16 @@
         <div class="md:col-span-3 space-y-3">
           <h4 class="text-xs font-bold text-slate-200 uppercase tracking-widest">Programas</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="#cursos" onclick="openCourseModal(1)" class="hover:text-white transition-colors">QGIS Inicial (60 hs)</a></li>
-            <li><a href="#cursos" onclick="openCourseModal(2)" class="hover:text-white transition-colors">QGIS Avanzado (100 hs)</a></li>
-            <li><a href="#cursos" onclick="openCourseModal(3)" class="hover:text-white transition-colors">Plataformas WEB - CARTO (60 hs)</a></li>
-            <li><a href="#cursos" onclick="openCourseModal(4)" class="hover:text-white transition-colors">Google Earth Engine (60 hs)</a></li>
-            <li><a href="#cursos" onclick="openCourseModal(5)" class="hover:text-white transition-colors">GIS + IA - Machine Learning (80 hs)</a></li>
-            <li><a href="#cursos" onclick="openCourseModal(6)" class="hover:text-white transition-colors">Web Mapping & GeoServicios (100 hs)</a></li>
-            <li><a href="#cursos" onclick="openCourseModal(7)" class="hover:text-white transition-colors">Fotogrametría con Drones (60 hs)</a></li>
+            <li><a href="#cursos" onclick="openCourseModal(1)" class="hover:text-white transition-colors">QGIS Inicial a
+                Avanzado</a></li>
+            <li><a href="#cursos" onclick="openCourseModal(2)" class="hover:text-white transition-colors">Cloud GIS</a>
+            </li>
+            <li><a href="#cursos" onclick="openCourseModal(3)" class="hover:text-white transition-colors">Google Earth
+                Engine</a></li>
+            <li><a href="#cursos" onclick="openCourseModal(4)" class="hover:text-white transition-colors">GIS + IA
+                (Machine Learning)</a></li>
+            <li><a href="#cursos" onclick="openCourseModal(5)" class="hover:text-white transition-colors">Web Mapping &
+                GeoServicios</a></li>
           </ul>
         </div>
 
@@ -1412,63 +1651,122 @@
   </div>
 
   <!-- MODAL CHECKOUT MULTIMONEDA -->
-  <!-- MODAL SOLICITUD DE INSCRIPCIÓN / MATRÍCULA -->
   <div id="checkout-modal"
     class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
     <div
       class="bg-white border border-slate-200 rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative custom-scrollbar max-h-[90vh] overflow-y-auto">
 
-      <!-- Botón para cerrar modal -->
-      <button onclick="closeCheckoutModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 p-1 rounded-lg" aria-label="Cerrar modal">
+      <!-- botton de pago -->
+      <!-- <button onclick="closeCheckoutModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700">
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
 
       <div class="mb-6 border-b border-slate-100 pb-4 text-center">
-        <span class="text-xs font-bold text-terracotta uppercase tracking-wider block mb-1">SOLICITUD DE INSCRIPCIÓN</span>
+        <span class="text-xs font-bold text-terracotta uppercase tracking-wider block mb-1">CHECKOUT MULTIMONEDA</span>
         <h3 class="font-display text-2xl font-bold text-slate-900">Matrícula Programa GEO|FORMA</h3>
-        <p class="text-xs text-slate-600 mt-1">Completa tus datos para recibir los accesos e instrucciones de inscripción formal por correo.</p>
+        <p class="text-xs text-slate-600 mt-1">Con garantía incondicional de devolución de 15 días.</p>
         <div id="checkout-courses-summary"
-          class="mt-3 bg-slate-50 border border-slate-200 p-3 rounded-lg text-xs text-slate-700 font-medium text-left"></div>
+          class="mt-3 bg-slate-50 border border-slate-200 p-2.5 rounded-lg text-xs text-slate-700 font-medium"></div>
       </div>
 
-      <!-- FORMULARIO DE ENVÍO DIRECTO POR CORREO (SIN PASARELA EXTERNA) -->
       <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4 text-sm">
-        <input type="hidden" name="cursos_seleccionados" id="checkout-hidden-courses" value="">
-        <input type="hidden" name="inversion_estimada" id="checkout-hidden-price" value="">
-
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre Completo *</label>
           <input type="text" name="nombre_completo" required placeholder="Ej. Carlos Mendoza"
-            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none text-slate-900">
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
         </div>
 
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Correo Electrónico *</label>
           <input type="email" name="email" required placeholder="tu.correo@empresa.com"
-            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none text-slate-900">
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
         </div>
 
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Plan de Financiamiento *</label>
+          <div class="grid grid-cols-2 gap-2">
+            <label
+              class="border border-slate-300 rounded-lg p-3 cursor-pointer hover:border-terracotta flex flex-col items-center text-center">
+              <input type="radio" name="payment_plan" value="single" checked class="mb-1 text-terracotta">
+              <span class="font-bold text-slate-900 text-xs">Pago Único</span>
+              <span class="text-xs text-slate-500 font-mono" id="modal-single-price">USD $97</span>
+            </label>
+
+            <label
+              class="border border-slate-300 rounded-lg p-3 cursor-pointer hover:border-terracotta flex flex-col items-center text-center">
+              <input type="radio" name="payment_plan" value="installments" class="mb-1 text-terracotta">
+              <span class="font-bold text-slate-900 text-xs">3 Cuotas sin Interés</span>
+              <span class="text-xs text-emerald-600 font-mono" id="modal-installment-price">3x USD $33/mes</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Pasarela / Método de Pago *</label>
+          <select id="payment-gateway" name="pasarela_pago" required
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none bg-white font-medium">
+            <option value="stripe">💳 Stripe (Tarjeta Crédito/Débito Internacional)</option>
+            <option value="paypal">🅿️ PayPal (Internacional)</option>
+            <option value="hotmart">🔥 Hotmart Checkout (Tarjeta / Efectivo / Cuotas LATAM)</option>
+            <option value="mercadopago">🟢 Mercado Pago (LATAM - Transferencia / Cuotas)</option>
+          </select>
+        </div>
+
+        <div
+          class="bg-emerald-50 border border-emerald-200 p-3 rounded-lg text-xs text-emerald-800 flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-5 h-5 shrink-0 text-emerald-600"></i>
+          <span>Protegido con <strong>Garantía Total de 15 Días</strong> de reembolso.</span>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-extrabold py-3.5 rounded-xl shadow-md transition-colors text-sm">
+          Confirmar e Ir a la Pasarela de Pago &rarr;
+        </button>
+      </form> -->
+
+      <!-- Modal para formulario -->
+      <button onclick="closeCheckoutModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="mb-6 border-b border-slate-100 pb-4 text-center">
+        <span class="text-xs font-bold text-terracotta uppercase tracking-wider block mb-1">SOLICITUD DE
+          INSCRIPCIÓN</span>
+        <h3 class="font-display text-2xl font-bold text-slate-900">Matrícula Programa GEO|FORMA</h3>
+        <p class="text-xs text-slate-600 mt-1">Completa tus datos para recibir la información de pago y vacante.</p>
+        <div id="checkout-courses-summary"
+          class="mt-3 bg-slate-50 border border-slate-200 p-2.5 rounded-lg text-xs text-slate-700 font-medium"></div>
+      </div>
+
+      <!-- FORMULARIO ACTUALIZADO PARA EMAILJS O FORMSPREE -->
+      <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4 text-sm">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre Completo *</label>
+          <input type="text" name="nombre_completo" required placeholder="Ej. Carlos Mendoza"
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Correo Electrónico *</label>
+          <input type="email" name="email" required placeholder="tu.correo@empresa.com"
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
+        </div>
+
+        <!-- OPCIONAL: Teléfono de contacto si deseas recolectarlo -->
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Teléfono / WhatsApp *</label>
           <input type="tel" name="telefono" required placeholder="Ej. +54 9 387 1234567"
-            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none text-slate-900">
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Consulta o Nota Adicional (Opcional)</label>
-          <textarea name="mensaje_adicional" rows="2" placeholder="¿Deseas facturación para empresa, pagar en cuotas o alguna consulta técnica?"
-            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none text-slate-900 resize-none"></textarea>
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none">
         </div>
 
         <div class="bg-slate-50 border border-slate-200 p-3 rounded-lg text-xs text-slate-600 flex items-center gap-2">
           <i data-lucide="shield-check" class="w-5 h-5 shrink-0 text-emerald-600"></i>
-          <span>Tus datos están protegidos. Recibirás respuesta directa de Virginia del Val con el plan de estudio y vacante asegurada.</span>
+          <span>Tus datos están protegidos. Recibirás los detalles de inscripción formal por correo.</span>
         </div>
 
-        <button type="submit" id="btn-submit-enrollment"
-          class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-extrabold py-3.5 rounded-xl shadow-md transition-colors text-sm flex items-center justify-center gap-2">
-          <span>Enviar Solicitud de Inscripción</span>
-          <i data-lucide="send" class="w-4 h-4"></i>
+        <button type="submit"
+          class="w-full bg-terracotta hover:bg-terracotta-hover text-white font-extrabold py-3.5 rounded-xl shadow-md transition-colors text-sm">
+          Enviar Solicitud de Inscripción &rarr;
         </button>
       </form>
 
@@ -1504,15 +1802,12 @@
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Programa de Interés *</label>
           <select name="programa_interes" required
-            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none bg-white font-medium">
-            <option value="qgis_ini">1. QGIS Inicial (60 hs)</option>
-            <option value="qgis_av">2. QGIS Avanzado (100 hs)</option>
-            <option value="carto">3. Plataformas WEB - CARTO (60 hs)</option>
-            <option value="gee">4. Google Earth Engine - GEE (60 hs)</option>
-            <option value="ia">5. GIS + IA - Machine Learning (80 hs)</option>
-            <option value="webmapping">6. Web Mapping & GeoServicios (100 hs)</option>
-            <option value="drones">7. Fotogrametría con Drones – Inicial (60 hs)</option>
-            <option value="todos">Programa Completo (Todos los Cursos)</option>
+            class="w-full border border-slate-300 rounded-lg p-2.5 focus:border-terracotta outline-none bg-white">
+            <option value="qgis">QGIS Inicial a Avanzado</option>
+            <option value="cloud">Cloud GIS – GIS en la Nube</option>
+            <option value="gee">Google Earth Engine (GEE)</option>
+            <option value="ia">GIS + IA (Machine Learning)</option>
+            <option value="webmapping">Web Mapping & GeoServicios</option>
           </select>
         </div>
         <button type="submit"
@@ -1530,7 +1825,8 @@
     <span id="toast-message">Mensaje enviado con éxito.</span>
   </div>
 
-  <!-- MÓDULO DE MODALES, CALCULADORA Y ENVÍOS (js/modal.js) -->
+  <!-- JAVASCRIPT LOGIC -->
+<!-- MÓDULO INDEPENDIENTE DE ENVÍO DE FORMULARIOS POR MAIL (js/mailer.js) -->
   <script src="js/modal.js" defer></script>
   
 
