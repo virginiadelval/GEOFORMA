@@ -341,19 +341,6 @@ async function handleCheckoutSubmit(event) {
   let enviado = false;
   if (typeof sendFormDataByEmail === 'function') {
     enviado = await sendFormDataByEmail(payload);
-  } else {
-    // Fallback AJAX directo a FormSubmit
-    try {
-      const resp = await fetch("https://formsubmit.co/ajax/sig.salta.2019@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      enviado = resp.ok;
-    } catch (err) {
-      console.error("Error al contactar el servicio de correo:", err);
-      enviado = false;
-    }
   }
 
   if (submitBtn) {
@@ -403,17 +390,6 @@ async function handleAdvisorySubmit(e) {
   let enviado = false;
   if (typeof sendFormDataByEmail === 'function') {
     enviado = await sendFormDataByEmail(payload);
-  } else {
-    try {
-      const resp = await fetch("https://formsubmit.co/ajax/sig.salta.2019@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      enviado = resp.ok;
-    } catch (err) {
-      enviado = false;
-    }
   }
 
   if (submitBtn) {
@@ -467,17 +443,6 @@ async function handleInCompanySubmit(event) {
   let enviado = false;
   if (typeof sendFormDataByEmail === 'function') {
     enviado = await sendFormDataByEmail(payload);
-  } else {
-    try {
-      const resp = await fetch("https://formsubmit.co/ajax/sig.salta.2019@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      enviado = resp.ok;
-    } catch (err) {
-      enviado = false;
-    }
   }
 
   if (submitBtn) {
