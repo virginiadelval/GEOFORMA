@@ -31,7 +31,7 @@ const BASE_PRICES_ARS = {
   individual: {
     1: 240000, // QGIS Inicial (4 sem / 60 hs)
     2: 330000, // QGIS Avanzado (5 sem / 100 hs)
-    3: 240000, // Plataformas WEB - CARTO (4 sem / 60 hs)
+    3: 240000, // Plataformas Web: ArcGIS Online / Maplibre/ Geolibre/ Rustgis (4 sem / 60 hs)
     4: 270000, // Google Earth Engine (4 sem / 60 hs)
     5: 330000, // GIS + IA (4 sem / 80 hs)
     6: 350000, // Web Mapping (5 sem / 100 hs)

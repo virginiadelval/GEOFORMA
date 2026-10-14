@@ -78,7 +78,7 @@ function openCourseModal(id) {
 
     <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-200">
       <button onclick="closeCourseModal(); selectSingleCourseAndScroll(${id})" class="w-full sm:w-1/2 bg-terracotta hover:bg-terracotta-hover text-white font-bold py-3 rounded-lg transition-colors text-sm shadow-sm flex items-center justify-center gap-2">
-        <span>Inscribirme Solo en este Curso</span>
+        <span>Cotizar Solo este Curso</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </button>
       <button onclick="closeCourseModal(); openAdvisoryModal()" class="w-full sm:w-1/2 border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold py-3 rounded-lg transition-colors text-sm flex items-center justify-center gap-2">
@@ -99,34 +99,47 @@ function closeCourseModal() {
 }
 
 // ------------------------------------------
-// 3. CALCULADORA DE INVERSIÓN Y SELECCIÓN DE CURSOS
+// 3. PANEL DE COTIZACIÓN Y SELECCIÓN DE CURSOS
 // ------------------------------------------
-function calculateSelectedCourses() {
-  if (typeof coursePrices === 'undefined' || !coursePrices) return;
 
+// Nombres canónicos de los 7 cursos
+const courseCatalogNames = {
+  1: "QGIS Inicial",
+  2: "QGIS Avanzado",
+  3: "Plataformas Web: ArcGIS Online / Maplibre/ Geolibre/ Rustgis",
+  4: "Google Earth Engine (GEE)",
+  5: "GIS + IA (Machine Learning)",
+  6: "Web Mapping & GeoServicios",
+  7: "Fotogrametría con Drones – Inicial"
+};
+
+// Carga horaria oficial por curso
+const courseHoursData = {
+  1: 60,
+  2: 100,
+  3: 60,
+  4: 60,
+  5: 80,
+  6: 100,
+  7: 60
+};
+
+function calculateSelectedCourses() {
   const inputs = document.querySelectorAll('.course-check-input');
   const selectedIds = [];
   inputs.forEach(input => {
     if (input.checked) selectedIds.push(parseInt(input.value));
   });
 
-  const currData = coursePrices[currentSelectedCurrency] || coursePrices.USD;
   const count = selectedIds.length;
-
-  // Actualizar precios individuales mostrados en cada checkbox
-  for (let i = 1; i <= 7; i++) {
-    const pElem = document.getElementById(`price-course-${i}`);
-    if (pElem && currData.individual && currData.individual[i]) {
-      pElem.innerText = `${currData.symbol}${currData.individual[i].toLocaleString()}`;
-    }
-  }
+  let totalHours = 0;
+  selectedIds.forEach(id => {
+    totalHours += (courseHoursData[id] || 0);
+  });
 
   const counterElem = document.getElementById('selected-counter');
   const titleElem = document.getElementById('selected-summary-title');
-  const subtotalElem = document.getElementById('calc-subtotal');
-  const discountElem = document.getElementById('calc-discount');
-  const totalElem = document.getElementById('calc-total');
-  const installmentPriceElem = document.getElementById('calc-installment-price');
+  const totalHoursElem = document.getElementById('calc-total-hours');
   const btnCheckoutText = document.getElementById('btn-checkout-text');
   const btnSubmit = document.getElementById('btn-submit-checkout');
   const btnToggleAll = document.getElementById('btn-toggle-all');
@@ -138,95 +151,43 @@ function calculateSelectedCourses() {
   if (count === 0) {
     if (counterElem) counterElem.innerText = "0 Cursos";
     if (titleElem) titleElem.innerText = "Ningún Curso Seleccionado";
-    if (subtotalElem) subtotalElem.innerText = `${currData.symbol}0`;
-    if (discountElem) discountElem.innerText = "0%";
-    if (totalElem) totalElem.innerText = `${currData.symbol}0`;
-    if (installmentPriceElem) installmentPriceElem.innerText = `${currData.symbol}0/mes`;
+    if (totalHoursElem) totalHoursElem.innerText = "0 Horas";
     if (btnCheckoutText) btnCheckoutText.innerText = "Selecciona al menos 1 Curso";
     if (btnSubmit) btnSubmit.disabled = true;
 
-    updateCheckoutModalSummary(selectedIds, currData, 0);
+    updateCheckoutModalSummary(selectedIds, 0);
     return;
   }
 
   if (btnSubmit) btnSubmit.disabled = false;
 
-  let subtotal = 0;
-  selectedIds.forEach(id => {
-    if (currData.individual[id]) subtotal += currData.individual[id];
-  });
-
-  let discountPercent = 0;
-  let finalTotal = subtotal;
-
-  if (count === 1) {
-    discountPercent = 0;
-    finalTotal = subtotal;
-    if (titleElem) titleElem.innerText = "Inscripción 1 Curso Individual";
-  } else if (count === 2) {
-    discountPercent = 10;
-    finalTotal = Math.round(subtotal * 0.90);
-    if (titleElem) titleElem.innerText = "Pack 2 Cursos (-10%)";
-  } else if (count === 3) {
-    discountPercent = 15;
-    finalTotal = Math.round(subtotal * 0.85);
-    if (titleElem) titleElem.innerText = "Pack 3 Cursos (-15%)";
-  } else if (count === 4) {
-    discountPercent = 20;
-    finalTotal = Math.round(subtotal * 0.80);
-    if (titleElem) titleElem.innerText = "Pack 4 Cursos (-20%)";
-  } else if (count === 5) {
-    discountPercent = 25;
-    finalTotal = Math.round(subtotal * 0.75);
-    if (titleElem) titleElem.innerText = "Pack 5 Cursos (-25%)";
-  } else if (count === 6) {
-    discountPercent = 30;
-    finalTotal = Math.round(subtotal * 0.70);
-    if (titleElem) titleElem.innerText = "Pack 6 Cursos (-30%)";
-  } else if (count === 7) {
-    const packPrice = currData.pack7 || currData.packAll || Math.round(subtotal * 0.65);
-    discountPercent = Math.round((1 - packPrice / subtotal) * 100);
-    finalTotal = packPrice;
+  if (count === 7) {
     if (titleElem) titleElem.innerText = "Programa Completo (7 Cursos)";
+  } else if (count === 1) {
+    if (titleElem) titleElem.innerText = "Cotización 1 Curso Individual";
+  } else {
+    if (titleElem) titleElem.innerText = `Propuesta Personalizada (${count} Cursos)`;
   }
-
-  const installmentPrice = Math.round(finalTotal / 3);
 
   if (counterElem) counterElem.innerText = `${count} de 7 Cursos`;
-  if (subtotalElem) subtotalElem.innerText = `${currData.symbol}${subtotal.toLocaleString()}`;
-  if (discountElem) {
-    discountElem.innerText = count === 1 ? 'Sin Descuento' : `-${discountPercent}% Ahorro`;
-  }
-  if (totalElem) totalElem.innerText = `${currData.symbol}${finalTotal.toLocaleString()}`;
-  if (installmentPriceElem) installmentPriceElem.innerText = `${currData.symbol}${installmentPrice.toLocaleString()}/mes`;
-  if (btnCheckoutText) btnCheckoutText.innerText = `Solicitar Inscripción (${currData.symbol}${finalTotal.toLocaleString()})`;
+  if (totalHoursElem) totalHoursElem.innerText = `${totalHours} Horas`;
+  if (btnCheckoutText) btnCheckoutText.innerText = `Solicitar Cotización (${count} ${count === 1 ? 'Curso' : 'Cursos'})`;
 
-  updateCheckoutModalSummary(selectedIds, currData, finalTotal);
+  updateCheckoutModalSummary(selectedIds, totalHours);
 }
 
-// Nombres canónicos de los 7 cursos
-const courseCatalogNames = {
-  1: "QGIS Inicial",
-  2: "QGIS Avanzado",
-  3: "Plataformas WEB - CARTO",
-  4: "Google Earth Engine (GEE)",
-  5: "GIS + IA (Machine Learning)",
-  6: "Web Mapping & GeoServicios",
-  7: "Fotogrametría con Drones – Inicial"
-};
-
-// Sincronizar el resumen visible y los campos ocultos del modal de inscripción
-function updateCheckoutModalSummary(selectedIds, currData, finalTotal) {
+// Sincronizar el resumen visible y los campos ocultos del modal de cotización
+function updateCheckoutModalSummary(selectedIds, totalHours) {
   const summaryElem = document.getElementById('checkout-courses-summary');
   const hiddenCourses = document.getElementById('checkout-hidden-courses');
   const hiddenPrice = document.getElementById('checkout-hidden-price');
 
   if (selectedIds.length === 0) {
     if (summaryElem) {
-      summaryElem.innerHTML = `<span class="text-amber-700 font-semibold">⚠️ No has seleccionado ningún curso todavía en la calculadora.</span>`;
+      summaryElem.innerHTML = `<span class="text-amber-700 font-semibold">⚠️ No has seleccionado ningún curso todavía en el panel de cotización.</span>`;
     }
     if (hiddenCourses) hiddenCourses.value = "Ninguno";
-    if (hiddenPrice) hiddenPrice.value = "$0";
+    if (hiddenPrice) hiddenPrice.value = "Sin cursos seleccionados";
     return;
   }
 
@@ -237,7 +198,7 @@ function updateCheckoutModalSummary(selectedIds, currData, finalTotal) {
     summaryElem.innerHTML = `
       <div class="space-y-1.5">
         <div class="text-[11px] uppercase tracking-wider text-slate-500 font-bold">
-          Cursos a Inscribirte (${selectedIds.length}):
+          Cursos a Cotizar (${selectedIds.length}):
         </div>
         <div class="space-y-1">
           ${courseList.map(name => `
@@ -248,8 +209,8 @@ function updateCheckoutModalSummary(selectedIds, currData, finalTotal) {
           `).join('')}
         </div>
         <div class="pt-2 mt-2 border-t border-slate-200 flex justify-between items-center text-xs">
-          <span class="text-slate-500">Inversión Estimada:</span>
-          <span class="font-bold text-terracotta text-sm">${currData.symbol}${finalTotal.toLocaleString()}</span>
+          <span class="text-slate-500 font-medium">Carga Horaria Acumulada:</span>
+          <span class="font-bold text-terracotta text-sm">${totalHours} Horas</span>
         </div>
       </div>
     `;
@@ -257,7 +218,7 @@ function updateCheckoutModalSummary(selectedIds, currData, finalTotal) {
   }
 
   if (hiddenCourses) hiddenCourses.value = formattedCourses;
-  if (hiddenPrice) hiddenPrice.value = `${currData.symbol}${finalTotal.toLocaleString()}`;
+  if (hiddenPrice) hiddenPrice.value = `Cotización formal por correo (${totalHours} hs)`;
 }
 
 function toggleSelectAllCourses() {
@@ -297,8 +258,8 @@ function closeCheckoutModal() {
 }
 
 /**
- * Enviar solicitud de inscripción directa por correo (sin pasarelas de pago externas)
- * Notifica a sig.salta.2019@gmail.com con el detalle de los cursos que el alumno eligió.
+ * Enviar solicitud de cotización directa por correo (sin pasarelas ni montos públicos)
+ * Notifica a sig.salta.2019@gmail.com con el detalle de los cursos que el interesado habilitó.
  */
 async function handleCheckoutSubmit(event) {
   event.preventDefault();
@@ -309,8 +270,13 @@ async function handleCheckoutSubmit(event) {
   // Identificar los cursos marcados en el DOM
   const inputs = document.querySelectorAll('.course-check-input');
   const selectedIds = [];
+  let totalHours = 0;
   inputs.forEach(input => {
-    if (input.checked) selectedIds.push(parseInt(input.value));
+    if (input.checked) {
+      const id = parseInt(input.value);
+      selectedIds.push(id);
+      totalHours += (courseHoursData[id] || 0);
+    }
   });
 
   const cursosNombres = selectedIds.map(id => courseCatalogNames[id] || `Curso ${id}`).join(' | ');
@@ -322,10 +288,11 @@ async function handleCheckoutSubmit(event) {
   if (!payload.telefono && form.telefono) payload.telefono = form.telefono.value;
   if (form.mensaje_adicional && form.mensaje_adicional.value) payload.mensaje_adicional = form.mensaje_adicional.value;
 
-  payload.cursos_a_inscribir = cursosNombres || payload.cursos_seleccionados || "No especificado";
+  payload.tipo_solicitud = "Cotización de Cursos";
+  payload.cursos_seleccionados = cursosNombres || "Todos los cursos";
   payload.cantidad_cursos = selectedIds.length;
-  payload.inversion_estimada = document.getElementById('checkout-hidden-price')?.value || document.getElementById('calc-total')?.innerText || "A coordinar";
-  payload._subject = `[GEO|FORMA] Nueva Solicitud de Inscripción: ${payload.cursos_a_inscribir}`;
+  payload.carga_horaria_total = `${totalHours} horas`;
+  payload._subject = `[GEO|FORMA] Nueva Solicitud de Cotización (${selectedIds.length} Cursos): ${payload.nombre_completo || 'Interesado'}`;
 
   if (submitBtn) {
     submitBtn.disabled = true;
@@ -351,9 +318,9 @@ async function handleCheckoutSubmit(event) {
   if (enviado) {
     closeCheckoutModal();
     form.reset();
-    showToast("¡Solicitud de inscripción recibida! Te contactaremos con los accesos al curso.");
+    showToast("¡Solicitud de cotización recibida! Te enviaremos la propuesta formal y el programa por correo.");
   } else {
-    showToast("No pudimos procesar el envío. Por favor contáctanos a sig.salta.2019@gmail.com.");
+    showToast("No pudimos procesar el envío. Por favor contáctanos directamente a sig.salta.2019@gmail.com.");
   }
 }
 
@@ -433,7 +400,14 @@ async function handleInCompanySubmit(event) {
   const originalText = submitBtn ? submitBtn.innerHTML : "Solicitar Propuesta";
 
   const payload = typeof extractFormData === 'function' ? extractFormData(form) : {};
-  payload._subject = "[GEO|FORMA] Nueva Solicitud In-Company / B2B";
+  
+  // Recopilar cursos marcados en el panel de cotización in-company
+  const checkedCursos = Array.from(form.querySelectorAll('input[name="b2b_cursos"]:checked')).map(cb => cb.value);
+  if (checkedCursos.length > 0) {
+    payload.cursos_a_cotizar = checkedCursos.join(' | ');
+  }
+
+  payload._subject = `[GEO|FORMA] Nueva Solicitud de Cotización In-Company: ${payload.empresa || 'Empresa'}`;
 
   if (submitBtn) {
     submitBtn.disabled = true;
@@ -454,7 +428,7 @@ async function handleInCompanySubmit(event) {
   form.reset();
 
   if (enviado) {
-    showToast("Solicitud In-Company enviada. Nos comunicaremos en menos de 24 hs hábiles.");
+    showToast("Solicitud In-Company enviada. Nos comunicaremos en menos de 24 hs hábiles con la cotización.");
   } else {
     showToast("No pudimos enviar la cotización. Por favor escríbenos directamente.");
   }

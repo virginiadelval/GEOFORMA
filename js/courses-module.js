@@ -54,26 +54,26 @@ const coursesData = {
   },
   3: {
     id: 3,
-    title: "Plataformas WEB - CARTO",
+    title: "Plataformas Web: ArcGIS Online / Maplibre/ Geolibre/ Rustgis",
     category: "cloud",
     filterCategory: "cloud",
     badge: "INFRAESTRUCTURA & CLOUD",
     badgeClass: "bg-slate-700 text-white text-[11px] font-bold px-3 py-1 rounded-md tracking-wider",
     hours: "4 Semanas — 60 Horas",
-    shortDesc: "Despliegue de dashboards espaciales interactivos, visualización de grandes volúmenes de datos en la nube y analítica espacial ejecutiva.",
+    shortDesc: "Despliegue de visores cartográficos y dashboards espaciales en la nube con ArcGIS Online, MapLibre GL, plataformas GeoLibre y arquitecturas con RustGIS.",
     checklist: [
-      "Creación de Dashboards interactivos para toma de decisiones ejecutivas",
-      "Visualización de datos masivos y mapas temáticos avanzados en CARTO",
-      "Publicación e integración de vistas dinámicas para usuarios corporativos"
+      "Creación de Dashboards interactivos y visores para toma de decisiones ejecutivas",
+      "Visualización de datos espaciales y mapas temáticos con ArcGIS Online y MapLibre GL",
+      "Publicación e integración de arquitecturas abiertas con GeoLibre y RustGIS"
     ],
-    tools: ["CARTO", "Mapbox Studio", "ArcGIS Online", "Cloud DW"],
-    summary: "Arquitectura moderna de visualización espacial en la nube. Aprende a crear tableros de control interactivos con CARTO, publicar mapas temáticos con filtros en tiempo real y presentar resultados analíticos a equipos de toma de decisiones.",
+    tools: ["ArcGIS Online", "MapLibre GL", "GeoLibre", "RustGIS", "Cloud DW"],
+    summary: "Arquitectura moderna de visualización espacial en la nube y visores web. Aprende a crear tableros de control interactivos y visores cartográficos de alto rendimiento con ArcGIS Online, MapLibre GL, plataformas GeoLibre y arquitecturas de última generación con RustGIS, publicando datos espaciales y mapas temáticos con filtros en tiempo real.",
     syllabus: [
       "Módulo 1: Fundamentos de Cloud GIS y Arquitectura de Datos Espaciales en la Nube",
-      "Módulo 2: Carga, Optimización y Enriquecimiento de Datasets en la Plataforma CARTO",
+      "Módulo 2: Carga, Optimización y Publicación en ArcGIS Online y Servidores Espaciales",
       "Módulo 3: Creación de Dashboards Interactivos, Widgets Dinámicos y Filtros Espaciales",
-      "Módulo 4: Estilizado Cartográfico Web Personalizado e Integración con Mapbox Studio",
-      "Módulo 5: Publicación Segura, Gobernanza de Datos y Presentación Corporativa"
+      "Módulo 4: Estilizado Cartográfico Web con MapLibre GL y Ecosistema GeoLibre",
+      "Módulo 5: Arquitecturas de Alto Rendimiento con RustGIS y Presentación Corporativa"
     ]
   },
   4: {
