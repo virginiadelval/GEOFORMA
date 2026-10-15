@@ -222,7 +222,7 @@ export default function LandingPage() {
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
-                Domina el Territorio a través del <span className="text-slate-700 underline decoration-[#C2410C]/60 underline-offset-8">Análisis de Datos</span>, la Nube y la Inteligencia Artificial.
+                Domina el erritorio a través del <span className="text-slate-700 underline decoration-[#C2410C]/60 underline-offset-8">Análisis de Datos</span>, la Nube y la Inteligencia Artificial.
               </h1>
 
               <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
