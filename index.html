@@ -1417,6 +1417,7 @@
 
       <!-- FORMULARIO DE ENVÍO DIRECTO POR CORREO (SIN PASARELA EXTERNA) -->
       <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4 text-sm">
+        <input type="hidden" name="cursos_a_inscribir" id="checkout-hidden-courses-inscribir" value="">
         <input type="hidden" name="cursos_seleccionados" id="checkout-hidden-courses" value="">
         <input type="hidden" name="inversion_estimada" id="checkout-hidden-price" value="">
 

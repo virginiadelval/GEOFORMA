@@ -180,6 +180,7 @@ function calculateSelectedCourses() {
 function updateCheckoutModalSummary(selectedIds, totalHours) {
   const summaryElem = document.getElementById('checkout-courses-summary');
   const hiddenCourses = document.getElementById('checkout-hidden-courses');
+  const hiddenCoursesInscribir = document.getElementById('checkout-hidden-courses-inscribir');
   const hiddenPrice = document.getElementById('checkout-hidden-price');
 
   if (selectedIds.length === 0) {
@@ -187,6 +188,7 @@ function updateCheckoutModalSummary(selectedIds, totalHours) {
       summaryElem.innerHTML = `<span class="text-amber-700 font-semibold">⚠️ No has seleccionado ningún curso todavía en el panel de cotización.</span>`;
     }
     if (hiddenCourses) hiddenCourses.value = "Ninguno";
+    if (hiddenCoursesInscribir) hiddenCoursesInscribir.value = "Ninguno";
     if (hiddenPrice) hiddenPrice.value = "Sin cursos seleccionados";
     return;
   }
@@ -218,6 +220,7 @@ function updateCheckoutModalSummary(selectedIds, totalHours) {
   }
 
   if (hiddenCourses) hiddenCourses.value = formattedCourses;
+  if (hiddenCoursesInscribir) hiddenCoursesInscribir.value = formattedCourses;
   if (hiddenPrice) hiddenPrice.value = `Cotización formal por correo (${totalHours} hs)`;
 }
 
@@ -288,11 +291,33 @@ async function handleCheckoutSubmit(event) {
   if (!payload.telefono && form.telefono) payload.telefono = form.telefono.value;
   if (form.mensaje_adicional && form.mensaje_adicional.value) payload.mensaje_adicional = form.mensaje_adicional.value;
 
+  const listaCursosTexto = cursosNombres || (selectedIds.length === 0 ? "Ningún curso seleccionado" : "Todos los cursos (Pack 7)");
+
   payload.tipo_solicitud = "Cotización de Cursos";
-  payload.cursos_seleccionados = cursosNombres || "Todos los cursos";
+  // Asignamos todas las variantes de nombres de campo para compatibilidad absoluta con Google Apps Script
+  payload.cursos_a_inscribir = listaCursosTexto;
+  payload.cursos_seleccionados = listaCursosTexto;
+  payload.cursos = listaCursosTexto;
+  payload.curso = listaCursosTexto;
+  payload.programa_interes = listaCursosTexto;
   payload.cantidad_cursos = selectedIds.length;
   payload.carga_horaria_total = `${totalHours} horas`;
-  payload._subject = `[GEO|FORMA] Nueva Solicitud de Cotización (${selectedIds.length} Cursos): ${payload.nombre_completo || 'Interesado'}`;
+  if (!payload.inversion_estimada) {
+    payload.inversion_estimada = `Cotización formal por correo (${totalHours} hs)`;
+  }
+
+  // Asunto descriptivo para que el curso exacto se vea de inmediato en la bandeja de entrada
+  let detalleAsunto = "";
+  if (selectedIds.length === 1) {
+    detalleAsunto = `1 Curso: ${cursosNombres}`;
+  } else if (selectedIds.length === 7) {
+    detalleAsunto = "Pack Completo (7 Cursos)";
+  } else if (selectedIds.length > 0) {
+    detalleAsunto = `${selectedIds.length} Cursos: ${cursosNombres}`;
+  } else {
+    detalleAsunto = "Cursos";
+  }
+  payload._subject = `[GEO|FORMA] Cotización (${detalleAsunto}) - ${payload.nombre_completo || 'Interesado'}`;
 
   if (submitBtn) {
     submitBtn.disabled = true;
@@ -347,7 +372,15 @@ async function handleAdvisorySubmit(e) {
   if (!payload.nombre_completo && form.nombre_completo) payload.nombre_completo = form.nombre_completo.value;
   if (!payload.email && form.email) payload.email = form.email.value;
   if (!payload.programa_interes && form.programa_interes) payload.programa_interes = form.programa_interes.value;
-  payload._subject = "[GEO|FORMA] Nueva Solicitud de Asesoría Técnica";
+
+  const programaAsesoria = payload.programa_interes || "Asesoría General";
+  payload.cursos_a_inscribir = programaAsesoria;
+  payload.cursos_seleccionados = programaAsesoria;
+  payload.cursos = programaAsesoria;
+  if (!payload.inversion_estimada) {
+    payload.inversion_estimada = "A coordinar en asesoría";
+  }
+  payload._subject = `[GEO|FORMA] Nueva Solicitud de Asesoría Técnica (${programaAsesoria}) - ${payload.nombre_completo || 'Interesado'}`;
 
   if (submitBtn) {
     submitBtn.disabled = true;
@@ -403,11 +436,16 @@ async function handleInCompanySubmit(event) {
   
   // Recopilar cursos marcados en el panel de cotización in-company
   const checkedCursos = Array.from(form.querySelectorAll('input[name="b2b_cursos"]:checked')).map(cb => cb.value);
-  if (checkedCursos.length > 0) {
-    payload.cursos_a_cotizar = checkedCursos.join(' | ');
+  const cursosB2B = checkedCursos.length > 0 ? checkedCursos.join(' | ') : "Capacitación In-Company a Medida";
+  payload.cursos_a_cotizar = cursosB2B;
+  payload.cursos_a_inscribir = cursosB2B;
+  payload.cursos_seleccionados = cursosB2B;
+  payload.cursos = cursosB2B;
+  if (!payload.inversion_estimada) {
+    payload.inversion_estimada = "Cotización Corporativa In-Company";
   }
 
-  payload._subject = `[GEO|FORMA] Nueva Solicitud de Cotización In-Company: ${payload.empresa || 'Empresa'}`;
+  payload._subject = `[GEO|FORMA] Nueva Solicitud In-Company (${payload.empresa || 'Empresa'}): ${payload.nombre_completo || 'Contacto'}`;
 
   if (submitBtn) {
     submitBtn.disabled = true;
