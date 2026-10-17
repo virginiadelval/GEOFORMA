@@ -262,7 +262,7 @@ function closeCheckoutModal() {
 
 /**
  * Enviar solicitud de cotización directa por correo (sin pasarelas ni montos públicos)
- * Notifica a sig.salta.2019@gmail.com con el detalle de los cursos que el interesado habilitó.
+ * Notifica a academygeoforma@gmail.com con el detalle de los cursos que el interesado habilitó.
  */
 async function handleCheckoutSubmit(event) {
   event.preventDefault();
@@ -345,7 +345,7 @@ async function handleCheckoutSubmit(event) {
     form.reset();
     showToast("¡Solicitud de cotización recibida! Te enviaremos la propuesta formal y el programa por correo.");
   } else {
-    showToast("No pudimos procesar el envío. Por favor contáctanos directamente a sig.salta.2019@gmail.com.");
+    showToast("No pudimos procesar el envío. Por favor contáctanos directamente a academygeoforma@gmail.com.");
   }
 }
 

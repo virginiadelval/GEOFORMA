@@ -3,15 +3,15 @@
  * ----------------------------------------------------------------------
  * Módulo independiente encargado de enviar los datos de los formularios
  * del sitio (Inscripción a Cursos, Asesoría Técnica y Cotización In-Company)
- * por correo electrónico a: sig.salta.2019@gmail.com
+ * por correo electrónico a: academygeoforma@gmail.com
  *
  * Utiliza Google Apps Script Web App (sin intermediarios comerciales, sin
  * pasarelas externas y sin necesidad de confirmaciones periódicas de dominio).
  * ----------------------------------------------------------------------
  */
 
-// Endpoint de la Web App de Google Apps Script vinculado a sig.salta.2019@gmail.com
-const GOOGLE_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbwCcVUWN4hvjYc5SJcWx2sZJ1MvcUg8egs7UWrTvjgouyffQAUbbjigjxR5F7f4bL-MJQ/exec";
+// Endpoint de la Web App de Google Apps Script vinculado a academygeoforma@gmail.com
+const GOOGLE_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzwgUAhmmEvNRm46qocDx7v23YoQRF-QdZMWVViXeCUpUjApA4CW4aEra5TOB1Dl2AsNA/exec";
 
 /**
  * Toma un <form> del DOM y devuelve un objeto plano { nombreCampo: valor }
