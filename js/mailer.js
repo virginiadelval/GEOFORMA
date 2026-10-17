@@ -10,8 +10,8 @@
  * ----------------------------------------------------------------------
  */
 
-// Endpoint de la Web App de Google Apps Script vinculado a academygeoforma@gmail.com
-const GOOGLE_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzwgUAhmmEvNRm46qocDx7v23YoQRF-QdZMWVViXeCUpUjApA4CW4aEra5TOB1Dl2AsNA/exec";
+// Endpoint de la Web App de Google Apps Script vinculado a academygeoforma@gmail.com (Guarda en Sheets + envía mail)
+const GOOGLE_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbx1rx3OFyRxfrxkuC7Jl1iWaf8wezRE81H-QqFQzdoESp1MQdhZBLC2W_R1kzCoR7l6/exec";
 
 /**
  * Toma un <form> del DOM y devuelve un objeto plano { nombreCampo: valor }
